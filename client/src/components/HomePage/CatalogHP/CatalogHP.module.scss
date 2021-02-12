@@ -1,0 +1,50 @@
+@import "../../../styles/variables.scss";
+
+.catalogWrapper {
+  margin-top: 180px;
+  position: relative;
+  padding: 0;
+}
+
+.titleContainer {
+  @include block-title
+}
+
+.itemsWrapper {
+  justify-content: space-between;
+  margin: 0;
+}
+
+.itemContainer {
+  max-width: 255px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 60px;
+}
+
+.imageContainer {
+  width: 255px;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  max-height: 350px;
+}
+
+.itemTitle {
+  @include typography-regular;
+  color: $button-text-color;
+  padding-top: 20px;
+}
+
+.linkContainer {
+  justify-content: center;
+}
+
+.link {
+  @include page-link;
+}

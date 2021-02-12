@@ -1,0 +1,135 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthToken {
+  token: String!
+  user: User!
+}
+
+enum Categories {
+  A
+  B
+}
+
+type Connect {
+  _id: String!
+  date: DateTime!
+  desires: [String!]!
+  desiresText: String!
+  name: String!
+  phone: String!
+  productId: String
+  step: Steps!
+}
+
+input CreateConnectInput {
+  desires: [String!]!
+  desiresText: String!
+  name: String!
+  phone: String!
+  productId: String
+}
+
+input CreateProductInput {
+  category: Categories
+  description: String!
+  imageUrls: [String!]!
+  price: Float!
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input FilterConnectsInput {
+  step: Steps
+}
+
+input FilterProductsInput {
+  category: Categories
+}
+
+input LoginInput {
+  login: String!
+  password: String!
+}
+
+type Mutation {
+  createConnect(createConnectData: CreateConnectInput!): Connect!
+  createProduct(createProductData: CreateProductInput!): Product!
+  deleteConnect(_id: String!): Connect!
+  deleteProduct(_id: String!): Product!
+  login(loginData: LoginInput!): AuthToken!
+  logout: Boolean!
+  registration(registrationData: RegistrationInput!): User!
+  updateConnect(updateConnectData: UpdateConnectInput!): Connect!
+  updateProduct(updateProductData: UpdateProductInput!): Product!
+}
+
+type PaginatedConnects {
+  connects: [Connect!]!
+  total: Float!
+}
+
+type PaginatedProducts {
+  products: [Product!]!
+  total: Float!
+}
+
+type Product {
+  _id: String!
+  category: Categories
+  description: String!
+  imageUrls: [String!]!
+  prettyId: String!
+  price: Float!
+  title: String!
+}
+
+type Query {
+  auth: ResponseCode!
+  getConnect(_id: String!): Connect!
+  getConnects(filters: FilterConnectsInput, limit: Int = 10, page: Int = 0): PaginatedConnects!
+  getProductById(_id: String!): Product!
+  getProductByPrettyId(prettyId: String!): Product!
+  getProducts(filters: FilterProductsInput, limit: Int = 10, page: Int = 0): PaginatedProducts!
+  sayHello: String!
+}
+
+input RegistrationInput {
+  login: String!
+  password: String!
+}
+
+type ResponseCode {
+  responseCode: Float!
+}
+
+enum Steps {
+  Connected
+  Sold
+  Viewed
+  notViewed
+}
+
+input UpdateConnectInput {
+  _id: String!
+  isConnected: Boolean
+  isSold: Boolean
+  isViewed: Boolean
+}
+
+input UpdateProductInput {
+  _id: String!
+  category: Categories
+  title: String
+}
+
+type User {
+  _id: String!
+  login: String!
+  password: String!
+}

@@ -1,0 +1,39 @@
+@import "../../styles/variables.scss";
+
+.headerWrapper {
+    width: 100%;
+    background-color: $header-background;
+}
+
+.headerContainer {
+    padding: 0;
+}
+
+.navbar {
+    padding: 20px 0 !important;
+}
+
+.logo {
+    width: 145px;
+    height: 16px;
+}
+
+.nav {
+    margin-left: auto;
+}
+
+.toggle {
+    border-color: rgba(0,0,0,0) !important;
+}
+
+.navItem {
+    @include header-link;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 21px;
+    margin-left: 40px;
+}
+
+
+

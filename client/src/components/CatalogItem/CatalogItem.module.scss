@@ -1,0 +1,73 @@
+@import "../../styles/variables.scss";
+
+.itemWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: rgba(0.4,0.4,0.4,0.7);
+  z-index: 95;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselContainer {
+  width: 550px;
+  height: 550px;
+  overflow: hidden;
+}
+
+.carouselItem {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  max-height: 550px ;
+}
+
+.sideContainer {
+  width: 350px;
+  height: 550px;
+  background-color: rgba(242,239,235,1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+
+.closeButton {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.price {
+  @include typography-price;
+  margin-bottom: 30px;
+}
+
+.title {
+  @include typography-light
+}
+
+.description {
+  @include typography-light
+}

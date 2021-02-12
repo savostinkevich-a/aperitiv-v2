@@ -1,0 +1,47 @@
+@import "../../../styles/variables.scss";
+
+.contactsWrapper {
+  margin: 180px auto;
+  position: relative;
+  padding: 0;
+}
+
+.titleContainer {
+  @include block-title
+}
+
+.descriptionContainer {
+  justify-content: center;
+}
+
+.description {
+  @include typography-regular;
+  max-width: 480px;
+  text-align: center;
+}
+
+.iconsWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 870px;
+  margin: 45px auto 0;
+}
+
+.iconContainer {
+  @include contacts-link;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  @include icon;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 25px;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+}

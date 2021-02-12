@@ -1,0 +1,195 @@
+// COLORS
+$title-color: #525252;
+$text-color: #525252;
+$link-color: #6C6C6C;
+$link-color-underline: #D4D4D4;
+
+$button-text-color: #3E3C3C;
+$button-color: #DDD6CE;
+$button-hover-color: #C1B5A8;
+
+$cover-background: #F8F7F5;
+$header-background: #F2EFEB;
+
+$text-secondary-color: #3E3C3C;
+
+$image-placeholder-background: #F2EFEB;
+$main-background: #FFFFFF;
+$secondary-background: #F4F4F2;
+/////////////////////////////
+
+a:hover {
+  text-decoration: none;
+}
+
+
+// Fonts
+@font-face {
+  font-family: 'Segoe Script';
+  src: url("../assets/fonts/SegoeScript.woff") format('woff'),
+       url("../assets/fonts/SegoeScript.woff2") format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Regular.woff") format('woff'),
+       url("../assets/fonts/Roboto-Regular.woff2") format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../assets/fonts/Roboto-Light.woff") format('woff'),
+       url("../assets/fonts/Roboto-Light.woff2") format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+$cursive: 'Segoe Script', 'Georgia', 'serif';
+$sans-serif: 'Roboto', sans-serif;
+/////////////////////////////
+
+@mixin h1-style {
+  font-family: $cursive;
+  font-size: 55px;
+}
+
+@mixin h2-style {
+  font-family: $sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+@mixin form-title {
+  font-family: $sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+@mixin typography-regular {
+  font-family: $sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@mixin typography-light {
+  font-family: $sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+@mixin typography-small {
+  font-family: $sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@mixin typography-price {
+  font-family: $cursive;
+  font-size: 25px;
+}
+
+
+@mixin header-link {
+  font-family: $sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: $button-text-color;
+  &:hover {
+    border-bottom: 1px solid $button-text-color;
+    color: $button-text-color;
+    text-decoration: none;
+  }
+}
+
+@mixin page-link {
+  font-family: $sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: $link-color;
+  border-bottom: 1px solid $link-color-underline;
+  &:hover {
+    color: $button-text-color;
+    border-bottom: 1px solid $link-color;
+  }
+}
+
+@mixin contacts-link {
+  font-family: $sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: $button-text-color;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid $button-text-color;
+    .icon {
+      opacity: 1;
+      animation-name: shake ;
+      animation-duration: 0.1s;
+      animation-timing-function: ease-in-out;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@mixin icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 25px;
+  opacity: 0.3;
+  &:hover {
+
+
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-2px);
+  }
+  100% {
+    transform: translate(2px);
+  }
+}
+
+@mixin button {
+  text-transform: uppercase;
+  color: $button-text-color;
+  background-color: $button-color;
+  width: 230px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+
+@mixin block-title {
+  color: $title-color;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 80px;
+  &::before {
+    content: '';
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    border-top: 1px solid #DDDBCC;
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+  }
+  .title {
+    font-family: $sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: white;
+    z-index: 1;
+  }
+}
+

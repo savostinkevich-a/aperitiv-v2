@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.footerWrapper {
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: $secondary-background;
+}
+
+.logo {
+  width: 145px;
+  height: 16px;
+}

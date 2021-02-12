@@ -1,0 +1,102 @@
+@import "../../styles/variables.scss";
+
+.catalogWrapper {
+  margin-top: 80px;
+  padding: 0;
+}
+
+.titleContainer {
+  justify-content: center;
+  position: relative;
+  margin: 0;
+  margin-bottom: 80px;
+  &::before {
+    content: '';
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    border-top: 1px solid #DDDBCC;
+    position: absolute;
+    top: 50%;
+
+    z-index: 0;
+  }
+}
+
+.title {
+  @include h2-style;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: white;
+  z-index: 1;
+}
+
+.contentContainer {
+  margin: 0;
+  justify-content: space-between;
+}
+
+.contentWrapper {
+  padding: 0;
+  max-width: 540px;
+}
+
+.contentWrapperSmall {
+  padding: 0;
+  max-width: 240px;
+}
+
+.row {
+ justify-content: space-between;
+  margin: 0;
+}
+
+.image {
+
+  max-height: 100%;
+}
+
+.contentItemSmall {
+  padding: 0;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.imageContainerSmall {
+  width: 240px;
+  height: 350px;
+  overflow: hidden;
+  background-color: #6C6C6C;
+  display: flex;
+  justify-content: center;
+}
+
+.imageContainerLarge {
+  width: 540px;
+  height: 784px;
+  overflow: hidden;
+  background-color: #6C6C6C;
+}
+
+.contentItem {
+  padding: 0;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.pagination {
+  justify-content: center;
+}
+
+.paginationButton, .paginationButton:disabled {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.itemTitle {
+  margin-top: 20px;
+}
