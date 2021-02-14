@@ -1,8 +1,10 @@
-import {Controller, Get, Param, Post, Res, UploadedFile, UseInterceptors} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Req, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
 import {FileInterceptor} from "@nestjs/platform-express";
 import {diskStorage} from 'multer'
 
 let crypto = require("crypto");
+
+const fs = require('fs')
 
 @Controller('upload')
 export class UploadController {
@@ -32,6 +34,18 @@ export class UploadController {
         })
     }))
     uploadClientFile(@UploadedFile() file) {
-        return file.originalName
+        return file.filename
+    }
+
+    @Post('/client/delete/:imageName')
+    deleteImage(@Param() params): number {
+        const path = `./uploads/client/${params.imageName}`
+        try {
+            fs.unlinkSync(path)
+            return 0
+        } catch(err) {
+            console.error(err)
+            return 1
+        }
     }
 }

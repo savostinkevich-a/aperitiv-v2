@@ -72,6 +72,14 @@
   border: none;
 }
 
+.imageContainer {
+  display: flex;
+  padding-bottom: 20px;
+  & img {
+    margin-right: 10px;
+  }
+}
+
 .button {
   width: 230px;
   height: 50px;
@@ -86,6 +94,7 @@
 .checkboxText {
   font-size: 10px;
 }
+
 
 .buttonContainer {
   display: flex;

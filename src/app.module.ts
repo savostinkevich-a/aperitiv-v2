@@ -17,11 +17,15 @@ const config = require('../config/config')
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads/client'),
-      serveRoot: '/client'
+      serveRoot: '/client',
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads/products'),
       serveRoot: '/products'
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client/build'),
+      exclude: ['/api*', '/client*', '/products*', '/graphql*'],
     }),
     ConfigModule.forRoot(),
     MongooseModule.forRoot(config.dataBase),

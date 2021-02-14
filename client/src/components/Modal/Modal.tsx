@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useEffect, useState } from 'react';
 import {Button, Form, InputGroup, Modal, Row} from "react-bootstrap";
 import {connect} from "react-redux";
 import {RootState} from "../../redux/redux-store";
@@ -32,6 +32,7 @@ const ModalForm = (props: PropsType) => {
     const [phone, setPhone] = useState('')
     const [desire, setDesire] = useState('')
     const [imageUrls, setImageUrls] = useState(Array<string>())
+    const [check, setCheck] = useState(false)
 
     const [error, setError] = useState('')
 
@@ -50,6 +51,16 @@ const ModalForm = (props: PropsType) => {
                     setImageUrls(oldArray => [...oldArray, `http://localhost:5000/client/${response.data}`])
                 })
         }
+    }
+
+    const deleteImages = () => {
+        imageUrls.forEach(item => {
+            const array = item.split('/')
+            const name = array[array.length - 1]
+            let i = 0
+            UploadService.deleteClient(name).then(() => i++)
+        })
+        setImageUrls([])
     }
 
 
@@ -87,19 +98,23 @@ const ModalForm = (props: PropsType) => {
                             inputRef.current.click()
                         }}><FiPaperclip/></Button>
                     </Form.Group>
-                    <div>
+                    {imageUrls.length > 0 &&
+                    <div className={s.imageContainer}>
                         {imageUrls.length > 0 && imageUrls.map(item => <img src={item} width={'50px'}/>)}
+                        <Button onClick={deleteImages}>Убрать все</Button>
                     </div>
+
+                    }
                     <div className={s.checkboxContainer}>
                         <span className={s.checkboxText}>Я принимаю условия </span>
                         <a className={s.checkboxText}>политики конфеденциальности </a>
                         <label className={s.checkbox}>
-                            <input type="checkbox"/>
+                            <input type="checkbox" checked={check} onChange={() => setCheck(!check)}/>
                             <span className={s.default}></span>
                         </label>
                     </div>
                     <div className={s.buttonContainer}>
-                        <Button variant="primary" className={s.button}>
+                        <Button variant="primary" className={s.button} disabled={name === '' || phone === '' || desire === '' || !check}>
                             Отправить
                         </Button>
                     </div>
