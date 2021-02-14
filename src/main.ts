@@ -8,10 +8,10 @@ async function bootstrap() {
   app.use(cookieParser());
   app.setGlobalPrefix('api')
   app.enableCors({
-    origin: ['http://localhost:5000', 'http://localhost:3000', ' https://aperitiv.herokuapp.com/'],
+    origin: ['https://aperitiv.herokuapp.com/'],
     credentials: true
   });
 
-  await app.listen( 5000);
+  await app.listen( process.env.PORT || 5000);
 }
 bootstrap();
