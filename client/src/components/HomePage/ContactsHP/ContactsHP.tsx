@@ -8,14 +8,14 @@ import { MdMailOutline } from 'react-icons/md'
 
 const ContactsHP = () => {
     return (
-        <Container className={s.contactsWrapper}>
+        <Container className={s.contactsWrapper} fluid={'md'}>
             <Row className={s.titleContainer}>
                 <h2 className={s.title}>Контакты</h2>
             </Row>
             <Row className={s.descriptionContainer}>
                 <p className={s.description}>По любым вопросам вы можете связаться со мной по телефону или в социальных сетях.</p>
             </Row>
-            <Row className={s.iconsWrapper}>
+            <Row className={s.iconsWrapper} xs={2} sm={4}>
                 <a className={s.iconContainer} href='tel:+375258431888'>
                     <FiPhoneCall className={s.icon}/>
                     +375 25 843 18 88

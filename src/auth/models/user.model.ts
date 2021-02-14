@@ -15,6 +15,8 @@ export class User {
   @Field()
   @Prop()
   password: string
+
+
 }
 
 export type UserDocument = User & Document

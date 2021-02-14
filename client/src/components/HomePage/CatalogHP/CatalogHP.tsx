@@ -13,7 +13,7 @@ const CatalogHP = (props: PropsType) => {
 
     const items = props.products.map(item => {
         return (
-            <NavLink to={`/home/${item.prettyId}`} >
+            <NavLink to={`/home/${item.prettyId}`} className={s.imageWrapper}>
                 <Col className={s.itemContainer} key={item._id}>
                     <div className={s.imageContainer} >
                         <Image src={item.imageUrls[0]} className={s.image}/>
@@ -25,11 +25,11 @@ const CatalogHP = (props: PropsType) => {
     })
 
     return (
-        <Container className={s.catalogWrapper}>
+        <Container className={s.catalogWrapper} fluid={'md'}>
             <Row className={s.titleContainer}>
                 <h2 className={s.title}>Каталог</h2>
             </Row>
-            <Row xs={1} sm={3} md={2} lg={2} xl={4} className={s.itemsWrapper}>
+            <Row xs={2} sm={2} md={3} lg={4} xl={4} className={s.itemsWrapper}>
                 {items}
             </Row>
             <Row className={s.linkContainer}>

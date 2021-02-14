@@ -17,9 +17,9 @@ export class Product {
     @Prop()
     title: string
 
-    @Field(() => String)
+    @Field(() => String, {nullable: true})
     @Prop()
-    description: string
+    description?: string
 
     @Field(() => Number)
     @Prop()

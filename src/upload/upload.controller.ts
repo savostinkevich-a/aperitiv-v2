@@ -18,7 +18,7 @@ export class UploadController {
         }
     ))
     uploadFile(@UploadedFile() file) {
-        return file.originalname
+        return file.filename
     }
 
     @Post('/client')

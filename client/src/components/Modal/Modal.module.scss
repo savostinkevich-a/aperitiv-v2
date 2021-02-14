@@ -3,6 +3,11 @@
 .modalWrapper {
   width: 600px !important;
   min-height: 520px;
+  margin: 0 auto;
+}
+
+.modal div {
+  max-width: 100%;
 }
 
 .closeButton {
@@ -17,6 +22,9 @@
 
 .modalContainer {
   padding: 0 140px 30px 140px;
+  @media (max-width: 575px) {
+    padding: 0 15px 30px 15px;
+  }
 }
 
 .closeButtonRow {

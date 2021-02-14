@@ -33,7 +33,7 @@ input CreateConnectInput {
 
 input CreateProductInput {
   category: Categories
-  description: String!
+  description: String
   imageUrls: [String!]!
   price: Float!
   title: String!
@@ -82,7 +82,7 @@ type PaginatedProducts {
 type Product {
   _id: String!
   category: Categories
-  description: String!
+  description: String
   imageUrls: [String!]!
   prettyId: String!
   price: Float!

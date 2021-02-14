@@ -61,6 +61,7 @@ const ModalForm = (props: PropsType) => {
             backdrop="static"
             keyboard={false}
             contentClassName={s.modalWrapper}
+            className={s.modal}
         >
             <Row className={s.closeButtonRow}>
                 <GrClose className={s.closeButton} onClick={() => props.setModalOpen(false)}/>

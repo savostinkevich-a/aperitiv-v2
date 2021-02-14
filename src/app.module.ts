@@ -11,13 +11,18 @@ import { UploadModule } from './upload/upload.module';
 import {ServeStaticModule} from "@nestjs/serve-static";
 import { ConnectsModule } from './connects/connects.module';
 
-const config = require('../../config/config')
+const config = require('../config/config')
 
 @Module({
   imports: [
-    // ServeStaticModule.forRoot({
-    //   rootPath: join(__dirname, '..', 'uploads')
-    // }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads/client'),
+      serveRoot: '/client'
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads/products'),
+      serveRoot: '/products'
+    }),
     ConfigModule.forRoot(),
     MongooseModule.forRoot(config.dataBase),
     GraphQLModule.forRoot({
@@ -35,7 +40,7 @@ const config = require('../../config/config')
       },
       cors: {
         credentials: true,
-        origin: true,
+        origin: ['http://localhost:5000', 'http://localhost:3000', ' http://192.168.0.110:3000'],
       }
     }),
     AuthModule,

@@ -7,18 +7,18 @@ import about2 from '../../../assets/img/about2.jpg'
 
 const AboutHP = () => {
     return (
-        <Container className={s.aboutWrapper}>
+        <Container className={s.aboutWrapper} fluid={'md'}>
             <Row className={s.titleContainer}>
                 <div></div>
                 <h2 className={s.title}>Обо мне</h2>
             </Row>
-            <Row>
+            <Row md={2} >
                 <Col className={s.imageContainer}>
                     <div className={s.image}>
-                        <Image src={about1} width='220px' height='270px'/>
+                        <Image className={s.firstImage} src={about1}/>
                     </div>
                     <div >
-                        <Image src={about2} width='290px' height='360px'/>
+                        <Image className={s.secondImage} src={about2} />
                     </div>
 
                 </Col>
