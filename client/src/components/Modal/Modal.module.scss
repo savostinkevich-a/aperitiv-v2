@@ -21,10 +21,19 @@
 }
 
 .modalContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 0 140px 30px 140px;
   @media (max-width: 575px) {
     padding: 0 15px 30px 15px;
   }
+}
+
+.responseText {
+  @include typography-regular;
+  text-align: center;
 }
 
 .closeButtonRow {

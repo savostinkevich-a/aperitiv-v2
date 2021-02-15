@@ -15,7 +15,7 @@ enum Categories {
 type Connect {
   _id: String!
   date: DateTime!
-  desires: [String!]!
+  desires: [String!]
   desiresText: String!
   name: String!
   phone: String!
@@ -24,7 +24,7 @@ type Connect {
 }
 
 input CreateConnectInput {
-  desires: [String!]!
+  desires: [String!]
   desiresText: String!
   name: String!
   phone: String!

@@ -33,16 +33,16 @@ function App() {
                         <Route exact path={'/home/:prettyId'}
                                render={() => <CatalogItem fromCatalog={false}/>}
                         />
-                        <Route path={'/portfolio'}
-                               render={() => <Catalog/>}
-                        />
-                        <Route exact path={'/catalog/:prettyId'}
-                               render={() => <CatalogItem fromCatalog={true}/>}
-                        />
-                        <Route exact path={'/about'}
-                               render={() => <About/>}
-                        />
-                        <Route component={Page404}/>
+                        {/*<Route path={'/portfolio'}*/}
+                        {/*       render={() => <Catalog/>}*/}
+                        {/*/>*/}
+                        {/*<Route exact path={'/catalog/:prettyId'}*/}
+                        {/*       render={() => <CatalogItem fromCatalog={true}/>}*/}
+                        {/*/>*/}
+                        {/*<Route exact path={'/about'}*/}
+                        {/*       render={() => <About/>}*/}
+                        {/*/>*/}
+                        {/*<Route component={Page404}/>*/}
                         <ModalForm/>
                         <Footer/>
                     </Fragment>

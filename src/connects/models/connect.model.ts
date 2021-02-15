@@ -22,9 +22,9 @@ export class Connect {
     @Prop()
     desiresText: string
 
-    @Field(() => [String])
+    @Field(() => [String], {nullable: true})
     @Prop()
-    desires: Array<string>
+    desires?: Array<string>
 
     @Field(() => String)
     @Prop()

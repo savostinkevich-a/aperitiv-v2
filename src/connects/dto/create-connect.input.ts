@@ -12,8 +12,8 @@ export class CreateConnectInput {
     @Field()
     desiresText: string
 
-    @Field(() => [String])
-    desires: Array<string>
+    @Field(() => [String], {nullable: true})
+    desires?: Array<string>
 
     @Field()
     phone: string

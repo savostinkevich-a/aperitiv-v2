@@ -43,10 +43,10 @@ const Header = () => {
                         </NavLink>
                     </Navbar.Brand>
                         <Nav className={s.nav}>
-                            <NavLink to={'/home'} className={`${s.navItem} ${s.homePageLink}`}>Главная</NavLink>
-                            <NavLink to={'/portfolio'} className={s.navItem} onClick={closeMenu}>Портфолио</NavLink>
-                            <NavLink to={'/about'} className={s.navItem} onClick={closeMenu}>Обо мне</NavLink>
-                            <NavLink to={'/contacts'} className={s.navItem} onClick={closeMenu}>Контакты</NavLink>
+                            <NavLink to={'/home'} className={`${s.navItem} ${s.homePageLink}`} onClick={closeMenu}>Главная</NavLink>
+                            <NavLink to={'/home'} className={s.navItem} onClick={closeMenu}>Портфолио</NavLink>
+                            <NavLink to={'/home'} className={s.navItem} onClick={closeMenu}>Обо мне</NavLink>
+                            <NavLink to={'/home'} className={s.navItem} onClick={closeMenu}>Контакты</NavLink>
                         </Nav>
                 </Navbar>
             </Container>
