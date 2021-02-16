@@ -27,13 +27,13 @@ const CatalogHP = (props: PropsType) => {
     return (
         <Container className={s.catalogWrapper} fluid={'md'}>
             <Row className={s.titleContainer}>
-                <h2 className={s.title}>Каталог</h2>
+                <h2 className={s.title}>Портфолио</h2>
             </Row>
             <Row xs={2} sm={2} md={3} lg={4} xl={4} className={s.itemsWrapper}>
                 {items}
             </Row>
             <Row className={s.linkContainer}>
-                <NavLink to={'/portfolio'} className={s.link}>Перейти в каталог</NavLink>
+                <NavLink to={'/portfolio'} className={s.link}>Перейти в портфолио</NavLink>
             </Row>
         </Container>
     )

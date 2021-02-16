@@ -42,7 +42,7 @@ const CreateProduct = () => {
                 setProgress(Math.round(100 * event.loaded / event.total))
             }).then(
                 (response) => {
-                    setImageUrls(oldArray => [...oldArray, `http://localhost:5000/products/${response.data}`])
+                    setImageUrls(oldArray => [...oldArray, `https://aperitiv.herokuapp.com/products/${response.data}`])
                 }
             )
         }

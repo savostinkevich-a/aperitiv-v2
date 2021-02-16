@@ -156,38 +156,43 @@ $sans-serif: 'Roboto', sans-serif;
   cursor: pointer;
   border-bottom: 1px solid transparent;
   &:hover {
-    border-bottom: 1px solid $button-text-color;
     .icon {
-      opacity: 1;
+      opacity: 0.9;
       animation-name: shake ;
-      animation-duration: 0.1s;
+      animation-duration: 1s;
       animation-timing-function: ease-in-out;
       animation-direction: alternate;
       animation-iteration-count: infinite;
+    }
+    .icon path {
+        stroke: #a6a098;
     }
   }
   @media (max-width: 767px) {
     font-size: 16px;
   }
+  @media (max-width: 575px) {
+    font-size: 14px;
+  }
 }
 
 @mixin icon {
-  width: 30px;
-  height: 30px;
+  stroke: black;
   margin-bottom: 25px;
-  opacity: 0.3;
   &:hover {
 
-
+  }
+  @media (max-width: 575px) {
+    margin-bottom: 15px;
   }
 }
 
 @keyframes shake {
   0% {
-    transform: translate(-2px);
+    transform: scale(1.1);
   }
   100% {
-    transform: translate(2px);
+    transform: scale(0.9);
   }
 }
 
@@ -198,6 +203,9 @@ $sans-serif: 'Roboto', sans-serif;
   width: 230px;
   height: 50px;
   border-radius: 10px;
+  &:hover {
+    background-color: $button-hover-color;
+  }
   @media (max-width: 575px) {
     width: 190px;
     height: 40px;
@@ -229,15 +237,21 @@ $sans-serif: 'Roboto', sans-serif;
     font-family: $sans-serif;
     font-size: 30px;
     font-weight: 400;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
     background-color: white;
+    height: 30px;
     z-index: 1;
+  }
+  @media (max-width: 757px) {
+    margin-bottom: 50px;
   }
   @media (max-width: 575px) {
     margin-bottom: 30px;
+    height: 22px;
     .title {
       font-size: 22px;
+      padding: 0 15px;
     }
   }
 }

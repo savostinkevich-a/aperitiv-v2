@@ -3,7 +3,7 @@ import TitleHP from "./TitleHP/TitleHP";
 import AboutHP from "./AboutHP/AboutHP";
 import CatalogHP from "./CatalogHP/CatalogHP";
 import FormHP from "./FormHP/FormHP";
-import ContactsHP from "./ContactsHP/ContactsHP";
+import ContactsHP from "../Footer/Contacts/Contacts";
 import Modal from "../Modal/Modal";
 import {connect} from "react-redux";
 import {RootState} from "../../redux/redux-store";
@@ -46,7 +46,6 @@ const HomePage = (props: PropsType) => {
             <AboutHP/>
             <CatalogHP products={props.products}/>
             <FormHP openModal={props.setModalOpen}/>
-            <ContactsHP/>
         </>
     )
 }

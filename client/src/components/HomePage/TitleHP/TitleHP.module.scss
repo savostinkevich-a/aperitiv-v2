@@ -98,6 +98,9 @@
     color: white;
     text-align: center;
   }
+  @media (max-width: 575px) {
+    width: 80%;
+  }
 }
 
 .titleButton {

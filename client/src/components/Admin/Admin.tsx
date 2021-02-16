@@ -28,7 +28,7 @@ const Admin = () => {
         <Container className='mt-3'>
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                 <Row>
-                    <Col sm={3}>
+                    <Col sm={3} className='mb-5'>
                         <Nav variant="pills" className="flex-column">
                             <Nav.Item>
                                 <Nav.Link eventKey="first">Добавить</Nav.Link>

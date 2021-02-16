@@ -62,12 +62,14 @@
     width: 90%;
   }
   @media (max-width: 575px) {
+    width: 90%;
     height: 200px;
   }
 }
 
 .image {
   max-height: 350px;
+  width: auto;
 }
 
 .itemTitle {

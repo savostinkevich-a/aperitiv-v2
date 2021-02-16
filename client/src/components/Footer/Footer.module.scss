@@ -6,9 +6,15 @@
   justify-content: flex-start;
   align-items: center;
   background-color: $secondary-background;
+  @media (max-width: 757px) {
+    padding: 0 20px;
+    height: 60px;
+  }
 }
 
 .logo {
   width: 145px;
-  height: 16px;
+  @media (max-width: 757px) {
+    width: 100px;
+  }
 }

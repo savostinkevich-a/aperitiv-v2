@@ -1,22 +1,23 @@
 import React from "react";
 import {Col, Container, Image, Row} from "react-bootstrap";
 import s from './About.module.scss'
-import {NavLink} from "react-router-dom";
+import about1 from '../../assets/img/about1.jpg';
+import about2 from '../../assets/img/about2.jpg';
 
 const About = () => {
     return (
-        <Container className={s.aboutWrapper}>
+        <Container className={s.aboutWrapper} fluid={'md'}>
             <Row className={s.titleContainer}>
-                <div></div>
+
                 <h2 className={s.title}>Обо мне</h2>
             </Row>
-            <Row>
+            <Row md={2} >
                 <Col className={s.imageContainer}>
                     <div className={s.image}>
-                        <Image src={'https://picsum.photos/220/270'}/>
+                        <Image className={s.firstImage} src={about1}/>
                     </div>
                     <div >
-                        <Image src={'https://picsum.photos/290/360'}/>
+                        <Image className={s.secondImage} src={about2} />
                     </div>
 
                 </Col>
@@ -30,8 +31,16 @@ const About = () => {
                     </p>
                 </Col>
             </Row>
-            <Row className={s.secondRow}>
-                <Col className={s.textContainer}>
+            <Row className={s.xsImageWrapper}>
+                <Col>
+                    <div className={s.xsImageContainer}></div>
+                </Col>
+                <Col>
+                    <div className={s.xsImageContainer}></div>
+                </Col>
+            </Row>
+            <Row className={s.secondRow} md={2}>
+                <Col className={s.textContainerSecond}>
                     <p className={s.text}>
                         Развивая эту тему, социальная психология искусства продолжает фарс. Диалогичность, в первом
                         приближении, свободна.
@@ -40,8 +49,8 @@ const About = () => {
                         невротический синтез искусств, однако само по себе состояние игры всегда амбивалентно.
                     </p>
                 </Col>
-                <Col>
-                    <Image src={'https://picsum.photos/480/530'}/>
+                <Col className={s.thirdImageContainer}>
+                    <Image className={s.thirdImage} src={'https://picsum.photos/480/530'}/>
                 </Col>
             </Row>
         </Container>

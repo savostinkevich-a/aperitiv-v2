@@ -1,35 +1,24 @@
 @import "../../styles/variables.scss";
 
 .aboutWrapper {
-  margin-top: 80px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   position: relative;
-  margin-bottom: 180px;
+  min-height: calc(100vh - 60px) ;
+  @media (max-width: 992px) {
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+  @media (max-width: 767px) {
+    padding: 80px 15px 0 15px;
+  }
+
 }
 
 .titleContainer {
-  justify-content: center;
-  position: relative;
-  margin-bottom: 80px;
-  &::before {
-    content: '';
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    border-top: 1px solid #DDDBCC;
-    position: absolute;
-    top: 50%;
-
-    z-index: 0;
-  }
+  @include block-title
 }
 
-.title {
-  @include h2-style;
-  padding-left: 40px;
-  padding-right: 40px;
-  background-color: white;
-  z-index: 1;
-}
 
 .textContainer {
   box-sizing: border-box;
@@ -40,33 +29,132 @@
   flex-direction: column;
   justify-content: space-between;
   margin-top: 80px;
-  &:nth-child(1) {
-    padding: 0 30px 0 0;
+  @media (max-width: 992px) {
+    height: 250px;
+    margin-top: 40px;
+    padding: 0 0 0 15px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 40px;
+    padding:  0 15px;
+    height: auto;
+  }
+  @media (max-width: 575px) {
+    margin-top: 0
+  }
+}
+
+.textContainerSecond {
+  margin-top: 80px;
+  padding: 0 30px 0 0 ;
+  @media (max-width: 757px) {
+    padding: 0 20px;
+    margin-top: 45px;
+  }
+  @media (max-width: 575px) {
+    margin-top: 20px;
   }
 }
 
 .text {
-  width: 480px;
+  @include typography-regular;
+  color: $text-color;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
 }
 
 .link {
-  padding: 0 15px;
-  color: #6C6C6C;
+  @include page-link;
   display: block;
   align-self: flex-end;
 }
 
 .imageContainer {
-
   display: flex;
   justify-content: space-between;
   padding: 0 30px 0 0;
+  @media (max-width: 992px) {
+    padding: 0 15px 0 0;
+  }
+  @media (max-width: 767px) {
+    padding: 0 15px;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 575px) {
+    display: none;
+  }
 }
 
 .image {
   margin-top: auto;
 }
 
+.firstImage {
+  width: 220px;
+  height: 270px;
+  @media (max-width: 1200px) {
+    width: 180px;
+    height: 220px;
+  }
+  @media (max-width: 992px) {
+    width: 130px;
+    height: 159px;
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.secondImage {
+  width: 290px;
+  height: 360px;
+  @media (max-width: 1200px) {
+    width: 250px;
+    height: 310px;
+  }
+  @media (max-width: 992px) {
+    width: 180px;
+    height: 223px;
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.thirdImage {
+  padding-left: 15px;
+  width: 100%;
+  @media (max-width: 992px) {
+    padding-left: 0;
+  }
+}
+
 .secondRow {
   margin-top: 30px;
+  @media (max-width: 757px) {
+    margin-top: 0;
+  }
+}
+
+.xsImageWrapper {
+  display: none;
+  @media (max-width: 575px) {
+    display: flex;
+  }
+}
+
+.thirdImageContainer {
+  @media (max-width: 757px) {
+    display: none;
+  }
+}
+
+.xsImageContainer {
+  width: auto;
+  box-sizing: content-box;
+  height: 180px;
+  background-color: $cover-background;
 }

@@ -1,15 +1,12 @@
 import React, { createRef, useEffect, useRef, useState } from 'react';
 import {Container, Image, Nav, Navbar} from "react-bootstrap";
-import {NavLink} from "react-router-dom";
+import { HashRouter, NavLink, useLocation } from 'react-router-dom';
 import logo from './../../assets/img/logo.png'
 import s from './Header.module.scss'
 import {BiMenu} from 'react-icons/all';
-import {GrClose} from 'react-icons/gr'
 import { IoMdClose} from 'react-icons/io'
-import { IconContext } from 'react-icons/lib';
 
 const Header = () => {
-    const [width, setWidth] = useState<number>()
 
     const nav = createRef<HTMLDivElement>()
 
@@ -19,12 +16,9 @@ const Header = () => {
         nav.current.style.display = 'block'
     }
 
-    useEffect(() => {
-        console.log(width)
-    }, [width])
+    let location = useLocation()
 
     const closeMenu = () => {
-
         if (window.innerWidth < 768) {
             // @ts-ignore
             nav.current.style.display = 'none'
@@ -32,8 +26,9 @@ const Header = () => {
     }
 
     return (
+
         <div className={s.headerWrapper} >
-            <BiMenu className={s.burger} onClick={openMenu} color='white'/>
+            <BiMenu className={s.burger} onClick={openMenu} color={location.pathname === '/home' ? 'white' : 'black'}/>
             <Container className={s.headerContainer} ref={nav} fluid={'md'}>
                 <Navbar expand={'md'} className={s.navbar}>
                     <IoMdClose className={s.closeButton} onClick={closeMenu} color='white'/>
@@ -44,9 +39,11 @@ const Header = () => {
                     </Navbar.Brand>
                         <Nav className={s.nav}>
                             <NavLink to={'/home'} className={`${s.navItem} ${s.homePageLink}`} onClick={closeMenu}>Главная</NavLink>
-                            <NavLink to={'/home'} className={s.navItem} onClick={closeMenu}>Портфолио</NavLink>
-                            <NavLink to={'/home'} className={s.navItem} onClick={closeMenu}>Обо мне</NavLink>
-                            <NavLink to={'/home'} className={s.navItem} onClick={closeMenu}>Контакты</NavLink>
+                            <NavLink to={'/portfolio'} className={s.navItem} onClick={closeMenu}>Портфолио</NavLink>
+                            <NavLink to={'/about'} className={s.navItem} onClick={closeMenu}>Обо мне</NavLink>
+                            <HashRouter hashType='noslash'>
+                                <NavLink to={'contacts'} className={s.navItem} onClick={closeMenu}>Контакты</NavLink>
+                            </HashRouter>
                         </Nav>
                 </Navbar>
             </Container>
