@@ -22,6 +22,7 @@ function ScrollToTopOnMount() {
 
 type PropsType = {
   products: Array<Product>
+  total: number
   getProductsThunk(limit: number, page: number, filters: {}): any
   setModalOpen(isOpen: boolean): void
 }
@@ -29,9 +30,10 @@ type PropsType = {
 const Catalog = (props: PropsType) => {
   const [page, setPage] = useState(1);
 
+
   useEffect(() => {
-    props.getProductsThunk(10, 1, {});
-  }, [props.products]);
+    props.getProductsThunk(10, page, {});
+  }, [props.products, page]);
 
   if (props.products.length === 0) {
     return <Loader />;
@@ -174,6 +176,13 @@ const Catalog = (props: PropsType) => {
 
   }
 
+  const pages: Array<number> = []
+  const pagesCount = Math.ceil(props.total / 10)
+  for (let  i = 1; i <= pagesCount; i++) {
+    pages.push(i)
+
+  }
+  console.log(pagesCount)
 
   return (
     <>
@@ -189,10 +198,10 @@ const Catalog = (props: PropsType) => {
           <Button className={s.paginationButton} onClick={() => setPage(1)} disabled={page === 1}>
             <BsArrowLeft />
           </Button>
-          <Button className={s.paginationButton} onClick={() => setPage(1)} disabled={page === 1}>1</Button>
-          <Button className={s.paginationButton} onClick={() => setPage(2)} disabled={page === 2}>2</Button>
-          <Button className={s.paginationButton} onClick={() => setPage(3)} disabled={page === 3}>3</Button>
-          <Button className={s.paginationButton} onClick={() => setPage(3)} disabled={page === 3}>
+          {pages.map(i => {
+            return <Button className={s.paginationButton} onClick={() => setPage(i)} disabled={page === i}>{i}</Button>
+          })}
+          <Button className={s.paginationButton} onClick={() => setPage(pagesCount)} disabled={page === pagesCount}>
             <BsArrowRight />
           </Button>
 
@@ -206,6 +215,7 @@ const Catalog = (props: PropsType) => {
 let mapDispatchToProps = (state: RootState) => {
   return {
     products: state.portfolio.products,
+    total: state.portfolio.total
   };
 };
 
