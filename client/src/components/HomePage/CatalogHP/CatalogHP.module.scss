@@ -26,6 +26,9 @@
   @media (max-width: 767px) {
     max-width: 90% !important;
   }
+  @media (max-width: 575px) {
+    padding: 0 0 25px;
+  }
 }
 
 .itemsWrapper {
@@ -54,6 +57,7 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: center;
   @media (max-width: 1200px) {
     width: 220px;
     height: 280px;
@@ -70,12 +74,18 @@
 .image {
   max-height: 350px;
   width: auto;
+  @media (max-width: 575px) {
+    max-height: 200px;
+  }
 }
 
 .itemTitle {
   @include typography-regular;
   color: $button-text-color;
   padding-top: 20px;
+  @media (max-width: 575px) {
+    padding-top: 15px;
+  }
 }
 
 .linkContainer {

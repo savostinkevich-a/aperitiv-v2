@@ -8,6 +8,7 @@
   padding: 0;
   @media (max-width: 767px) {
     margin: 0;
+
   }
 }
 
@@ -43,7 +44,8 @@
       min-height: 700px;
       position: relative;
       background-image: url('../../../assets/img/titleImage.png');
-      background-size: (100%, auto);
+      background-size: (auto, 100%);
+      background-position: center;
       align-items: center;
       padding: 0 15px;
       &:after{
@@ -63,17 +65,17 @@
   }
   @media (max-width: 575px) {
     &:nth-child(1) {
-      min-height: 500px;
+      min-height: 100vh;
     }
   }
   @media (max-width: 420px) {
     &:nth-child(1) {
-      min-height: 400px;
+      min-height: 100vh;
     }
   }
   @media (max-width: 350px) {
     &:nth-child(1) {
-      min-height: 350px;
+      min-height: 100vh;
     }
   }
 }
