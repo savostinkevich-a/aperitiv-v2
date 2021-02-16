@@ -3,6 +3,9 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 import s from './About.module.scss'
 import about1 from '../../assets/img/about1.jpg';
 import about2 from '../../assets/img/about2.jpg';
+import about3 from '../../assets/img/10.jpg';
+import about4 from '../../assets/img/22.jpg';
+
 
 const About = () => {
     return (
@@ -31,12 +34,20 @@ const About = () => {
                     </p>
                 </Col>
             </Row>
-            <Row className={s.xsImageWrapper}>
+            <Row xs={2} className={s.xsImageWrapper}>
                 <Col>
-                    <div className={s.xsImageContainer}></div>
+                    <div className={s.xsImageContainer}>
+                        <div>
+                            <img src={about3} className={s.xsImages}/>
+                        </div>
+                    </div>
                 </Col>
                 <Col>
-                    <div className={s.xsImageContainer}></div>
+                    <div className={s.xsImageContainer}>
+                        <div>
+                            <img src={about4} className={s.xsImages}/>
+                        </div>
+                    </div>
                 </Col>
             </Row>
             <Row className={s.secondRow} md={2}>

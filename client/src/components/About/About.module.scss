@@ -157,4 +157,10 @@
   box-sizing: content-box;
   height: 180px;
   background-color: $cover-background;
+  overflow: hidden;
+}
+
+.xsImages {
+  height: 180px;
+  width: auto;
 }
