@@ -60,6 +60,10 @@ const CreateProduct = () => {
             }).then(result => {
                 if (result && result.data) {
                     setSuccess(`Добавлено! (${result.data.createProduct.title})`)
+                    setImageUrls([])
+                    setPrice(0)
+                    setDescription('')
+                    setTitle('')
                 }
             })
         } catch (e) {
@@ -105,7 +109,7 @@ const CreateProduct = () => {
                                   value={price} onChange={event => setPrice(parseFloat(event.target.value))}
                     />
                 </Form.Group>
-                <Button onClick={createHandler}>Отправить</Button>
+                <Button onClick={createHandler} disabled={progress !== 100 || price === 0 || title === '' || description === ''}>Отправить</Button>
             </Form>
         </Container>
     )
