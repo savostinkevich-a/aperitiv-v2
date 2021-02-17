@@ -10,6 +10,7 @@
   @media (max-width: 767px) {
     margin-left: 0;
     margin-right: 0;
+    padding: 0 15px;
   }
 }
 
@@ -17,23 +18,9 @@
   @include block-title
 }
 
-.itemContainer {
-  max-width: 255px !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0 60px;
-  @media (max-width: 767px) {
-    max-width: 90% !important;
-  }
-  @media (max-width: 575px) {
-    padding: 0 0 25px;
-  }
-}
-
-.itemsWrapper {
+.itemsWrapper{
   justify-content: space-between;
-  margin: 0;
+  padding: 0 15px;
   @media (max-width: 992px) {
     & a:nth-child(4n) {
       display: none;
@@ -43,50 +30,170 @@
     & a:nth-child(4n) {
       display: flex;
     }
+    justify-content: center;
+  }
+  @media (max-width: 520px) {
+    justify-content: space-around;
+  }
+  @media (max-width: 460px) {
+    justify-content: space-between;
   }
 }
 
-.imageWrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.imageContainer {
-  width: 255px;
-  height: 350px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.linkWrapper{
+  max-width: 240px;
+  height: 360px;
+  margin-bottom: 40px;
   @media (max-width: 1200px) {
-    width: 220px;
-    height: 280px;
+    max-width: 210px;
+    height: 320px;
   }
   @media (max-width: 767px) {
-    width: 90%;
+    max-width: 50%;
   }
-  @media (max-width: 575px) {
-    width: 90%;
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 520px) {
+    max-width: 180px;
+    height: 280px;
+  }
+  @media (max-width: 410px) {
+    max-width: 150px;
+    height: 240px;
+  }
+  @media (max-width: 350px) {
+    max-width: 130px;
+    height: 220px;
+  }
+}
+.itemContainer {
+  width: 240px;
+  height: 320px;
+  padding: 0;
+  @media (max-width: 1200px) {
+    width: 210px;
+    height: 280px;
+  }
+  @media (max-width: 520px) {
+    width: 180px;
+    height: 240px;
+  }
+  @media (max-width: 410px) {
+    width: 150px;
     height: 200px;
+  }
+  @media (max-width: 350px) {
+    max-width: 130px;
+    height: 180px;
   }
 }
 
 .image {
-  max-height: 350px;
-  width: auto;
-  @media (max-width: 575px) {
-    max-height: 200px;
+  width: 240px;
+  height: 320px;
+  @media (max-width: 1200px) {
+    width: 210px;
+    height: 280px;
+  }
+  @media (max-width: 520px) {
+    width: 180px;
+    height: 240px;
+  }
+  @media (max-width: 410px) {
+    width: 150px;
+    height: 200px;
+  }
+  @media (max-width: 350px) {
+    max-width: 130px;
+    height: 180px;
   }
 }
 
 .itemTitle {
-  @include typography-regular;
-  color: $button-text-color;
+  z-index: 1000;
   padding-top: 20px;
-  @media (max-width: 575px) {
-    padding-top: 15px;
-  }
+  text-align: center;
 }
+
+
+//.itemContainer {
+//  max-width: 240px !important;
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//  padding: 0 0 60px;
+//  @media (max-width: 767px) {
+//    max-width: 90% !important;
+//  }
+//  @media (max-width: 575px) {
+//    padding: 0 0 25px;
+//  }
+//}
+//
+//.itemsWrapper {
+//  height: 320px;
+//  justify-content: space-between;
+//  margin: 0;
+//  @media (max-width: 992px) {
+//    & a:nth-child(4n) {
+//      display: none;
+//    }
+//  }
+//}
+//
+//.imageWrapper {
+//  display: flex;
+//  justify-content: center;
+//  width: 240px;
+//  height: 360px;
+//}
+//
+//.imageContainer {
+//  width: 240px;
+//  height: 320px;
+//  overflow: hidden;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  @media (max-width: 1200px) {
+//    width: 220px;
+//    height: 280px;
+//  }
+//  @media (max-width: 767px) {
+//    width: 90%;
+//  }
+//  @media (max-width: 575px) {
+//    width: 90%;
+//    height: 250px;
+//  }
+//  @media (max-width: 415px) {
+//    height: 200px;
+//  }
+//
+//}
+//
+//.image {
+//  max-height: 320px;
+//  width: 240px;
+//  @media (max-width: 575px) {
+//    max-height: 250px;
+//  }
+//  @media (max-width: 415px) {
+//    max-height: 200px;
+//  }
+//}
+//
+//.itemTitle {
+//  @include typography-regular;
+//  color: $button-text-color;
+//  padding-top: 20px;
+//  @media (max-width: 575px) {
+//    padding-top: 15px;
+//  }
+//}
 
 .linkContainer {
   justify-content: center;

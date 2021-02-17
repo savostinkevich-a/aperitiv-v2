@@ -14,6 +14,8 @@ import Page404 from "./components/Page404/Page404";
 import ModalForm from "./components/Modal/Modal";
 import Contacts from './components/Footer/Contacts/Contacts';
 
+import 'normalize.css';
+
 
 function App() {
     return (

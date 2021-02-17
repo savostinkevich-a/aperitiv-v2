@@ -17,6 +17,7 @@
     "bootstrap": "^4.6.0",
     "graphql": "^15.5.0",
     "node-sass": "^5.0.0",
+    "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-cookie": "^4.0.3",

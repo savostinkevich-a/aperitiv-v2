@@ -31,17 +31,15 @@
   }
   @media (max-width: 991px) {
     &:nth-child(odd) {
-      padding: 0 15px 0 0;
+      padding: 0 20px 0 0;
     }
     &:nth-child(even) {
-      padding: 0 0 0 15px;
+      padding: 0 0 0 20px;
     }
   }
 }
 
 .contentItem__large {
-  overflow: hidden;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,31 +47,30 @@
   @media (max-width: 991px) {
     padding-bottom: 25px;
   }
-  @media (max-width: 767px) {
-    padding-bottom: 40px;
-  }
 }
 
 .imageContainer__large {
   display: flex;
-  justify-content: center;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 540px;
+  height: 720px;
+  @media (max-width: 1199px) {
+    width: 450px;
+    height: 600px;
+  }
+  @media (max-width: 991px) {
+    width: 345px;
+    height: 460px;
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+    justify-content: center;
+    height: calc((50vw - 30px)/3*4);
+  }
 }
 
 .image__large {
-  height: 784px;
-  @media (max-width: 1199px) {
-    height: 640px;
-  }
-  @media (max-width: 991px) {
-    height: 481px;
-  }
-  @media (max-width: 767px) {
-    height: 350px;
-  }
-  @media (max-width: 575px) {
-    height: 180px;
-  }
+  object-fit: contain;
 }
 
 
@@ -91,21 +88,22 @@
 
 .imageContainer__small {
   display: flex;
-  justify-content: center;
-  padding-bottom: 20px;
+  width: 240px;
+  height: 320px;
+  margin-bottom: 20px;
+  @media (max-width: 1200px) {
+    width: 195px;
+    height: 260px;
+  }
   @media (max-width: 991px) {
-    padding-bottom: 15px;
+    width: 150px;
+    height: 200px;
+    margin-bottom: 15px;
   }
 }
 
 .image__small {
-  height: 350px;
-  @media (max-width: 1199px) {
-    height: 278px;
-  }
-  @media (max-width: 991px) {
-    height: 209px;
-  }
+  object-fit: contain;
 }
 
 .imageContainer__large__add {
@@ -132,26 +130,22 @@
   }
 }
 
-.imageContainer__small__add {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: $cursive;
-  font-size: 30px;
-  color: $text-color;
-  width: 100%;
-  background-color: transparent;
-  margin-bottom: 20px;
-  height: 350px;
-  @media (max-width: 1199px) {
-    height: 278px;
+.contentWrapper__small {
+  padding: 0;
+  max-width: 240px;
+  @media (max-width: 1200px) {
+    max-width: 195px;
   }
   @media (max-width: 991px) {
-    height: 209px;
-    margin-bottom: 15px;
+    max-width: 150px;
   }
 }
+
+.contentContainer__small {
+  margin: 0;
+  justify-content: space-between;
+}
+
 
 //.contentWrapper {
 //  padding: 0;
@@ -208,6 +202,7 @@
   font-size: 20px;
 }
 //
-//.itemTitle {
-//  margin-top: 20px;
-//}
+.itemTitle {
+  @include typography-regular;
+  line-height: 20px;
+}

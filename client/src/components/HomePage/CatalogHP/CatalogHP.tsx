@@ -13,13 +13,12 @@ const CatalogHP = (props: PropsType) => {
 
     const items = props.products.map(item => {
         return (
-            <NavLink to={`/home/${item.prettyId}`} className={s.imageWrapper}>
+            <NavLink to={`/home/${item.prettyId}`} className={s.linkWrapper}>
                 <Col className={s.itemContainer} key={item._id}>
                     <div className={s.imageContainer}>
                       <div>
                         <Image src={item.imageUrls[0]} className={s.image}/>
                       </div>
-
                     </div>
                     <div className={s.itemTitle}>{item.title}</div>
                 </Col>
