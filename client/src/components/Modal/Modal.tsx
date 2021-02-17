@@ -54,7 +54,7 @@ const ModalForm = (props: PropsType) => {
       setIsFetching(true);
       UploadService.uploadClient(files[i])
         .then((response) => {
-          setImageUrls(oldArray => [...oldArray, `http://localhost:5000/client/${response.data}`]);
+          setImageUrls(oldArray => [...oldArray, `https://aperitiv.herokuapp.com/client/${response.data}`]);
           setIsFetching(false);
         });
     }
