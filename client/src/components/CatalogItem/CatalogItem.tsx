@@ -71,6 +71,7 @@ const CatalogItem = (props: PropsType) => {
     if (imageIndex >= product.imageUrls.length - 1) {
       const currentIndex = props.products.findIndex(item => item.prettyId === prettyId);
       if (currentIndex + 1 < props.products.length) {
+        setImageIndex(0)
         return setNextId(props.products[currentIndex + 1].prettyId);
       }
     } else {
