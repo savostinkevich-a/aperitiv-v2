@@ -50,7 +50,7 @@ const Admin = () => {
                                 <Button onClick={logOut}>Выйти</Button>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
-                                <Connects/>
+                                {/*<Connects/>*/}
                             </Tab.Pane>
                         </Tab.Content>
                     </Col>

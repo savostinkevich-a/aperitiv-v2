@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-    baseURL: "https://aperitiv.herokuapp.com/api",
+    baseURL: "http://localhost:5000/api",
     headers: {
         "Content-type": "application/json"
     }
@@ -9,16 +9,17 @@ const http = axios.create({
 
 
 class UploadFilesService {
-    uploadPortfolio(file: any, onUploadProgress: any) {
-        let formData = new FormData();
-        formData.append("image", file);
-        return http.post("/upload/products", formData, {
-            headers: {
-                "Content-Type": "image/png"
-            },
-            onUploadProgress,
-        });
+
+    uploadPortfolio(file: any) {
+        return http.post("/upload/products", file)
     }
+    // uploadPortfolio(file: any, onUploadProgress: any) {
+    //     let formData = new FormData();
+    //     formData.append("image", file);
+    //     return http.post("/upload/products", formData, {
+    //         onUploadProgress,
+    //     });
+    // }
 
     uploadClient(file: any) {
         let formData = new FormData()

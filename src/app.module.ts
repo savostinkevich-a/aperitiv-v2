@@ -11,7 +11,6 @@ import { UploadModule } from './upload/upload.module';
 import {ServeStaticModule} from "@nestjs/serve-static";
 import { ConnectsModule } from './connects/connects.module';
 
-const config = require('../config/config')
 
 @Module({
   imports: [
@@ -28,7 +27,7 @@ const config = require('../config/config')
       exclude: ['/api*', '/client*', '/products*', '/graphql*'],
     }),
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(config.dataBase),
+    MongooseModule.forRoot('mongodb+srv://andrey:rBi7099606@cluster0.0wcvh.mongodb.net/AperitiV?retryWrites=true&w=majority'),
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
