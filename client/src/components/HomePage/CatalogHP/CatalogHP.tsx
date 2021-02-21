@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
-import {Col, Container, Image, Row} from "react-bootstrap";
-import s from "./CatalogHP.module.scss";
-import {NavLink} from "react-router-dom";
-import {Product} from "../../../redux/portfolio/types";
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Image, Row } from 'react-bootstrap';
+import s from './CatalogHP.module.scss';
+import { NavLink } from 'react-router-dom';
+import { Product } from '../../../redux/portfolio/types';
 
 type PropsType = {
     products: Array<Product>
@@ -12,18 +12,21 @@ const CatalogHP = (props: PropsType) => {
 
     const items = props.products.map(item => {
         return (
-            <NavLink to={`/home/${item.prettyId}`} className={s.linkWrapper} key={item._id}>
-                <Col className={s.itemContainer}>
-                    <div className={s.imageContainer}>
-                      <div>
-                        <Image src={item.imageUrls[0]} className={s.image}/>
-                      </div>
+            <Col className={s.itemWrapper} key={item._id}>
+                <NavLink to={`/home/${item.prettyId}`} >
+                    <div className={s.itemContainer}>
+                        <div className={s.imageContainer}>
+                            <Image src={item.imageUrls[0]} className={s.image} />
+                        </div>
+                        <div className={s.itemTitle}>
+                            {item.title}
+                        </div>
                     </div>
-                    <div className={s.itemTitle}>{item.title}</div>
-                </Col>
-            </NavLink>
-        )
-    })
+                </NavLink>
+            </Col>
+
+        );
+    });
 
     return (
         <Container className={s.catalogWrapper} fluid={'md'}>
@@ -37,7 +40,7 @@ const CatalogHP = (props: PropsType) => {
                 <NavLink to={'/portfolio'} className={s.link}>Перейти в портфолио</NavLink>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
-export default CatalogHP
+export default CatalogHP;

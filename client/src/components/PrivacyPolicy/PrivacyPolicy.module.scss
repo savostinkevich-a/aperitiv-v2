@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.privacyWrapper {
+  padding-top: 80px;
+  position: relative;
+  min-height: calc(100vh - 60px) ;
+  @media (max-width: 992px) {
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+  @media (max-width: 767px) {
+    padding: 80px 15px 0 15px;
+  }
+
+}
+
+.titleContainer {
+  @include block-title
+}

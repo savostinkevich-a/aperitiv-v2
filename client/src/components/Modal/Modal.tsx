@@ -3,6 +3,7 @@ import { Button, Form, Image, Modal, Row } from 'react-bootstrap';
 import { GrClose } from 'react-icons/gr';
 import s from './Modal.module.scss';
 import { gql, useMutation } from '@apollo/client';
+import { NavLink } from 'react-router-dom';
 import { FiPaperclip } from 'react-icons/fi';
 import Loader from '../Loader/Loader';
 
@@ -200,7 +201,7 @@ const ModalForm = (props: PropsType) => {
         {imageSizeError && <div className='mb-3'>Максимальный вес картинки 10mb</div>}
         <div className={s.checkboxContainer}>
             <span className={s.checkboxText}>Я принимаю условия </span>
-            <a className={s.checkboxText}>политики конфиденциальности </a>
+            <NavLink to={'/privacy-policy'} onClick={closeHandler} className={s.checkboxText_link} >политики конфиденциальности </NavLink>
             <label className={s.checkbox}>
                 <input type="checkbox" checked={check} onChange={() => setCheck(!check)} />
                 <span className={s.default} />

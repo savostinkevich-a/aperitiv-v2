@@ -1,26 +1,27 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import './styles/App.scss';
-import client from "./graphql/graphql";
+import client from './graphql/graphql';
 import { ApolloProvider } from '@apollo/client';
-import Admin from "./components/Admin/Admin";
-import Header from "./components/Header/Header";
+import Admin from './components/Admin/Admin';
+import Header from './components/Header/Header';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import HomePage from "./components/HomePage/HomePage";
-import CatalogItem from "./components/CatalogItem/CatalogItem";
-import Catalog from "./components/Catalog/Catalog";
-import About from "./components/About/About";
-import Footer from "./components/Footer/Footer";
-import Page404 from "./components/Page404/Page404";
-import ModalForm from "./components/Modal/Modal";
+import HomePage from './components/HomePage/HomePage';
+import CatalogItem from './components/CatalogItem/CatalogItem';
+import Catalog from './components/Catalog/Catalog';
+import About from './components/About/About';
+import Footer from './components/Footer/Footer';
+import Page404 from './components/Page404/Page404';
+import ModalForm from './components/Modal/Modal';
 import Contacts from './components/Footer/Contacts/Contacts';
 import 'normalize.css';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 
 function App() {
-    const [isOpen, setIsOpen] = useState(false)
-    const [productsUrls, setProductsUrls] = useState<Array<string>>([])
+    const [isOpen, setIsOpen] = useState(false);
+    const [productsUrls, setProductsUrls] = useState<Array<string>>([]);
 
-    const appRef = React.createRef<HTMLDivElement>()
+    const appRef = React.createRef<HTMLDivElement>();
 
     // useEffect(() => {
     //     if (isOpen && appRef.current) {
@@ -34,33 +35,37 @@ function App() {
             <ApolloProvider client={client}>
                 <Switch>
                     <Route path={'/admin'}
-                           render={() => <Admin/>}
+                           render={() => <Admin />}
                     />
                     <Fragment>
-                        <Header/>
+                        <Header />
                         <Route exact path={'/'}>
-                            <Redirect to={'/home'}/>
+                            <Redirect to={'/home'} />
                         </Route>
                         <Route path={'/home'}
-                               render={() => <HomePage setModalOpen={setIsOpen} setProductsUrls={setProductsUrls} productUrls={productsUrls}/>}
+                               render={() => <HomePage setModalOpen={setIsOpen} setProductsUrls={setProductsUrls}
+                                                       productUrls={productsUrls} />}
                         />
                         <Route exact path={'/home/:prettyId'}
-                               render={() => <CatalogItem fromCatalog={false} products={productsUrls}/>}
+                               render={() => <CatalogItem fromCatalog={false} products={productsUrls} />}
                         />
                         <Route path={'/portfolio'}
-                               render={() => <Catalog setModalOpen={setIsOpen} setProductsUrls={setProductsUrls}/>}
+                               render={() => <Catalog setModalOpen={setIsOpen} setProductsUrls={setProductsUrls} />}
                         />
                         <Route exact path={'/portfolio/:prettyId'}
-                               render={() => <CatalogItem fromCatalog={true} products={productsUrls}/>}
+                               render={() => <CatalogItem fromCatalog={true} products={productsUrls} />}
                         />
                         <Route exact path={'/about'}
-                               render={() => <About/>}
+                               render={() => <About />}
                         />
-                        <Contacts/>
-                        <ModalForm isOpen={isOpen} setIsOpen={setIsOpen}/>
-                        <Footer/>
+                        <Route exact path={'/privacy-policy'}
+                               render={() => <PrivacyPolicy />}
+                        />
+                        <Contacts />
+                        <ModalForm isOpen={isOpen} setIsOpen={setIsOpen} />
+                        <Footer />
                     </Fragment>
-                    <Route component={Page404}/>
+                    <Route component={Page404} />
                 </Switch>
             </ApolloProvider>
         </div>
