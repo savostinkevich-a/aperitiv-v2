@@ -50,13 +50,19 @@
   @media (max-width: 767px) {
     width: 80%;
   }
+  @media (max-width: 575px) {
+    text-align: center;
+    width: 90%;
+  }
 }
 
 .button {
   @include button;
-  background-color: transparent;
   @media (max-width: 767px) {
     margin-bottom: 15px;
+  }
+  @media (max-width: 575px) {
+    margin-bottom: 6px;
   }
 }
 

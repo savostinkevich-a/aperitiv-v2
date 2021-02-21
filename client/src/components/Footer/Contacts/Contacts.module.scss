@@ -14,14 +14,22 @@
   @include block-title;
   @media (max-width: 767px) {
     margin: 0;
+    margin-bottom: 50px;
   }
+  @media (max-width: 575px) {
+    margin-bottom: 40px;
+  }
+
 }
 
 .descriptionContainer {
   justify-content: center;
   @media (max-width: 767px) {
     margin: 0;
-    padding-top: 30px;
+  }
+  @media (max-width: 575px) {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -29,6 +37,7 @@
   @include typography-regular;
   max-width: 480px;
   text-align: center;
+  margin: 0;
 }
 
 .iconsWrapper {
@@ -44,8 +53,9 @@
   }
 
   @media (max-width: 575px) {
-  width: 320px;
-}
+    margin-top: 36px;
+    width: 320px;
+  }
 
 }
 
@@ -55,6 +65,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  //border-left: 1px solid #1b1e21;
+  //&:last-child {
+  //  border-right: 1px solid #1b1e21;
+  //}
   @media (max-width: 575px) {
     margin-bottom: 20px;
     &:nth-child(1) {

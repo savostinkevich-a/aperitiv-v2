@@ -4,6 +4,7 @@ import Login from "./Login/Login";
 import {useCookies} from "react-cookie";
 import CreateProduct from "./CreateProduct/CreateProduct";
 import Connects from "./Connects/Connects";
+import UpdateProduct from './UpdateProducts/UpdateProduct';
 
 
 const Admin = () => {
@@ -39,6 +40,9 @@ const Admin = () => {
                             <Nav.Item>
                                 <Nav.Link eventKey="third">Заказы</Nav.Link>
                             </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="fourth">Удалить</Nav.Link>
+                            </Nav.Item>
                         </Nav>
                     </Col>
                     <Col sm={9}>
@@ -50,7 +54,10 @@ const Admin = () => {
                                 <Button onClick={logOut}>Выйти</Button>
                             </Tab.Pane>
                             <Tab.Pane eventKey="third">
-                                {/*<Connects/>*/}
+                                <Connects/>
+                            </Tab.Pane>
+                            <Tab.Pane eventKey="fourth">
+                                <UpdateProduct/>
                             </Tab.Pane>
                         </Tab.Content>
                     </Col>

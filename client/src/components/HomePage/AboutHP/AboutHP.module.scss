@@ -35,6 +35,9 @@
     padding:  0 15px;
     height: auto;
   }
+  @media (max-width: 575px) {
+    margin-top: 0;
+  }
 }
 
 .text {

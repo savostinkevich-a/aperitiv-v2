@@ -74,7 +74,6 @@ export const getProductThunk = (prettyId: string): ThunkAction<void, RootState, 
 
 export const createProductThunk = (createProductD: CreateProductData): ThunkAction<void, RootState, unknown, Action<string>> =>
 async dispatch => {
-    // TODO Что-нибудь вернуть и обработать ошибку
     const {data, errors} = await client.mutate({
         errorPolicy: 'all',
         variables: {

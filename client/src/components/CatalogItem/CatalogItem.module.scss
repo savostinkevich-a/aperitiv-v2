@@ -5,11 +5,12 @@
   justify-content: center;
   align-items: center;
   position: fixed;
+  overflow: auto;
   width: 100vw;
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: rgba(0.4,0.4,0.4,0.7);
+  background-color: rgba(0.4,0.4,0.4,0.0);
   z-index: 95;
 }
 
@@ -69,16 +70,16 @@
 }
 
 .image {
+  object-fit: contain;
   @media (max-width: 575px) {
     padding-top: 40px;
   }
-    object-fit: contain;
+
 }
 
 .imageContainer {
   position: relative;
   display: flex;
-  justify-content: center;
   height: 600px ;
   width: 450px;
   @media (max-width: 1200px) {
@@ -98,6 +99,7 @@
     width: 300px;
   }
   @media (max-width: 575px) {
+    justify-content: center;
     width: 100%;
     height: 400px;
   }
@@ -141,7 +143,7 @@
 }
 
 .sideContainer {
-  width: 350px;
+  width: 300px;
   height: 600px;
   background-color: rgba(242,239,235,1);
   display: flex;
@@ -149,6 +151,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  padding: 15px ;
+  text-align: center;
   @media (max-width: 1200px) {
     height: 500px;
     width: 300px;
@@ -167,7 +171,8 @@
   }
   @media (max-width: 575px) {
     width: 100%;
-    height: 150px;
+    height: 170px;
+    justify-content: flex-start;
   }
 }
 
@@ -195,15 +200,63 @@
 .price {
   @include typography-price;
   margin-bottom: 30px;
+  line-height: 23px;
   @media (max-width: 575px) {
     margin-bottom: 15px;
   }
 }
 
 .title {
-  @include typography-card-title
+  @include typography-card-title;
+  margin-bottom: 10px;
+  @media (max-width: 575px) {
+    margin-bottom: 5px ;
+  }
 }
 
 .description {
-  @include typography-light
+  @include typography-light;
+  @media (max-width: 575px) {
+    font-size: 12px;
+  }
+}
+
+.bulletsContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
+  @media (max-width: 575px) {
+    background: transparent;
+    padding: 10px 0;
+  }
+}
+
+.bullet {
+  color: #c1b5a8;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bulletSvg {
+  cursor: pointer;
+  & circle {
+    fill: none;
+    stroke: #fff
+  }
+}
+
+.bulletSvg__active {
+  cursor: pointer;
+  & circle {
+    fill: #fff;
+    stroke: #fff
+  }
 }

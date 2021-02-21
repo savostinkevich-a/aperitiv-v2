@@ -33,7 +33,7 @@ const Header = () => {
                 <Navbar expand={'md'} className={s.navbar}>
                     <IoMdClose className={s.closeButton} onClick={closeMenu} color='white'/>
                     <Navbar.Brand>
-                        <NavLink to={'/home'} onClick={closeMenu}>
+                        <NavLink to={'/home'} onClick={closeMenu} className={s.logoLink}>
                             <Image src={logo} className={s.logo}/>
                         </NavLink>
                     </Navbar.Brand>

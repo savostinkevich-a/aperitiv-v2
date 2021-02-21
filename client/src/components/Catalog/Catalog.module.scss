@@ -200,6 +200,20 @@
   border: none;
   background-color: transparent;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.paginationButton {
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+.paginationButton:disabled {
+  &:hover {
+    background-color: transparent;
+  }
 }
 //
 .itemTitle {

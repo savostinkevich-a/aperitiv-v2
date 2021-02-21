@@ -3,7 +3,6 @@ import {Col, Container, Image, Row} from "react-bootstrap";
 import s from "./CatalogHP.module.scss";
 import {NavLink} from "react-router-dom";
 import {Product} from "../../../redux/portfolio/types";
-import CatalogItem from "../../CatalogItem/CatalogItem";
 
 type PropsType = {
     products: Array<Product>
@@ -13,8 +12,8 @@ const CatalogHP = (props: PropsType) => {
 
     const items = props.products.map(item => {
         return (
-            <NavLink to={`/home/${item.prettyId}`} className={s.linkWrapper}>
-                <Col className={s.itemContainer} key={item._id}>
+            <NavLink to={`/home/${item.prettyId}`} className={s.linkWrapper} key={item._id}>
+                <Col className={s.itemContainer}>
                     <div className={s.imageContainer}>
                       <div>
                         <Image src={item.imageUrls[0]} className={s.image}/>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import {Col, Container, Image, Row} from "react-bootstrap";
 import s from './About.module.scss'
 import about1 from '../../assets/img/about1.jpg';
@@ -8,6 +8,11 @@ import about4 from '../../assets/img/22.jpg';
 
 
 const About = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
+
     return (
         <Container className={s.aboutWrapper} fluid={'md'}>
             <Row className={s.titleContainer}>

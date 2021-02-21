@@ -42,57 +42,57 @@ async dispatch => {
 
 }
 
-export const getConnectThunk = (_id: string): ThunkAction<void, RootState, unknown, Action<string>> =>
-async dispatch => {
-    const {data, errors} = await client.query({
-        errorPolicy: 'all',
-        variables: {
-            _id
-        },
-        query: gql`
-            query GetConnect($_id: String!) {
-                getConnect(_id: $_id) {
-                    _id
-                    name
-                    desire
-                    phone
-                    isConnected
-                    isViewed
-                    isSold
-                }
-            }
-        `
-    })
-    if (data) {
-        dispatch(getCurrentConnect(data.getConnect))
-        dispatch(setErrors(null))
-    }
-    if (errors) {
-        dispatch(setErrors(errors.map(item => item.message)))
-    }
-}
-
-export const createConnectThunk = (createConnectData: CreateConnectData): ThunkAction<void, RootState, unknown, Action<string>> =>
-async dispatch => {
-    const {data, errors} = await client.mutate({
-        errorPolicy: 'all',
-        variables: {
-            name: createConnectData.name,
-            desire: createConnectData.desire,
-            phone: createConnectData.phone
-        },
-        mutation: gql`
-            mutation CreateConnect($name: String!, $desire: String!, $phone: String!) {
-                createConnect(createConnectData: {phone: $phone, name: $name, desire: $desire}) {
-                    name
-                }
-            }
-        `
-    })
-    if (data) {
-        dispatch(setErrors(null))
-    }
-    if (errors) {
-        dispatch(setErrors(errors.map(item => item.message)))
-    }
-}
+// export const getConnectThunk = (_id: string): ThunkAction<void, RootState, unknown, Action<string>> =>
+// async dispatch => {
+//     const {data, errors} = await client.query({
+//         errorPolicy: 'all',
+//         variables: {
+//             _id
+//         },
+//         query: gql`
+//             query GetConnect($_id: String!) {
+//                 getConnect(_id: $_id) {
+//                     _id
+//                     name
+//                     desire
+//                     phone
+//                     isConnected
+//                     isViewed
+//                     isSold
+//                 }
+//             }
+//         `
+//     })
+//     if (data) {
+//         dispatch(getCurrentConnect(data.getConnect))
+//         dispatch(setErrors(null))
+//     }
+//     if (errors) {
+//         dispatch(setErrors(errors.map(item => item.message)))
+//     }
+// }
+//
+// export const createConnectThunk = (createConnectData: CreateConnectData): ThunkAction<void, RootState, unknown, Action<string>> =>
+// async dispatch => {
+//     const {data, errors} = await client.mutate({
+//         errorPolicy: 'all',
+//         variables: {
+//             name: createConnectData.name,
+//             desire: createConnectData.desire,
+//             phone: createConnectData.phone
+//         },
+//         mutation: gql`
+//             mutation CreateConnect($name: String!, $desire: String!, $phone: String!) {
+//                 createConnect(createConnectData: {phone: $phone, name: $name, desire: $desire}) {
+//                     name
+//                 }
+//             }
+//         `
+//     })
+//     if (data) {
+//         dispatch(setErrors(null))
+//     }
+//     if (errors) {
+//         dispatch(setErrors(errors.map(item => item.message)))
+//     }
+// }

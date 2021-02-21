@@ -55,10 +55,17 @@
 
 .navbar {
   padding: 20px 0 !important;
+  height: 80px;
   @media (max-width: 767px) {
+    height: auto;
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
 }
 
 .logo {

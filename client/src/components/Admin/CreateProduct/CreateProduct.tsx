@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Container, Form, Image } from 'react-bootstrap';
-import UploadService from '../../../services/upload-files.service';
 import { gql, useMutation } from '@apollo/client';
 import Loader from '../../Loader/Loader';
 
@@ -33,7 +32,8 @@ const CreateProduct = () => {
   const [isFetching, setIsFetching] = useState(false)
 
   const [createProduct] = useMutation(ADD_PRODUCT, {
-    onError:(e) => {
+    onError:() => {
+      setIsFetching(false)
       setError('Что-то пошло не так :(')
     }
   })
@@ -48,7 +48,7 @@ const CreateProduct = () => {
 
   useEffect(() => {
     if (previewSource.length === imageUrls.length && imageUrls.length > 0) {
-      createHandler().then((result) => {})
+      createHandler().then(() => {})
     }
   }, [imageUrls])
 
@@ -65,21 +65,21 @@ const CreateProduct = () => {
         if (result && result.data) {
           setIsFetching(false)
           setPreviewSource([])
-          setSuccess(`Добавлено! (${result.data.createProduct.title})`)
           setImageUrls([])
           setPrice(undefined)
           setDescription('')
           setTitle('')
+          setSuccess(`Добавлено! (${result.data.createProduct.title})`)
         }
       })
     } catch (e) {
       setIsFetching(false)
       setPreviewSource([])
-      setError(e.message)
       setImageUrls([])
       setPrice(undefined)
       setDescription('')
       setTitle('')
+      setError(e.message)
     }
   }
 
@@ -138,7 +138,7 @@ const CreateProduct = () => {
       </Alert>
       <Form onSubmit={handleSubmitFile}>
         <Form.Group>
-          <Form.File name='image' multiple onChange={handleFileInputChange} />
+          <Form.File name='image' multiple onChange={handleFileInputChange}/>
         </Form.Group>
         {previewSource && (
           previewSource.map(image => {
