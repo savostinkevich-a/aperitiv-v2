@@ -63,6 +63,7 @@
     height: 460px;
   }
   @media (max-width: 767px) {
+    margin-bottom: 17px;
     width: 100%;
     justify-content: center;
     height: calc((50vw - 30px)/3*4);
