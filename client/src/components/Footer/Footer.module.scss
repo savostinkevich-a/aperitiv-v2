@@ -7,14 +7,52 @@
   align-items: center;
   background-color: $secondary-background;
   @media (max-width: 757px) {
-    padding: 0 20px;
     height: 60px;
   }
 }
+
+.logoCol {
+  display: flex;
+  align-items: center;
+}
+
 
 .logo {
   width: 145px;
   @media (max-width: 757px) {
     width: 100px;
+  }
+}
+
+.devRow:nth-child(1) {
+  padding-bottom: 10px;
+}
+
+
+.dev_title {
+  max-width: 120px;
+  height: 12px;
+  font-family: $sans-serif;
+  line-height: 12px;
+  font-size: 12px;
+  color: rgba(82,82,82,0.4);
+  & a {
+    display: block;
+    text-align: start;
+  }
+  @media (max-width: 575px) {
+    max-width: 80px;
+  }
+}
+
+.dev_link {
+  width: 120px;
+  height: 12px;
+  font-size: 12px;
+  line-height: 12px;
+  font-family: $sans-serif;
+  color: rgba(82,82,82,0.4);
+  @media (max-width: 575px) {
+    max-width: 80px;
   }
 }

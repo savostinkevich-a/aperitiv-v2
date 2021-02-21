@@ -12,7 +12,6 @@ const Header = () => {
 
     const openMenu = () => {
         // @ts-ignore
-
         nav.current.style.display = 'block'
     }
 
@@ -25,13 +24,20 @@ const Header = () => {
         }
     }
 
-    return (
+    const burger = <svg className={s.burger} onClick={openMenu} width="35" height="15" viewBox="0 0 35 15" xmlns="http://www.w3.org/2000/svg">
+        <rect width="35" height="2" fill={location.pathname === '/home' ? '#fff' : '#3E3C3C' }/>
+        <rect y="14" width="35" height="2" fill={location.pathname === '/home' ? '#fff' : '#3E3C3C' }/>
+        <rect y="7" width="35" height="2" fill={location.pathname === '/home' ? '#fff' : '#3E3C3C' }/>
+    </svg>
 
+    return (
         <div className={s.headerWrapper} >
-            <BiMenu className={s.burger} onClick={openMenu} color={location.pathname === '/home' ? 'white' : 'black'}/>
+            {burger}
             <Container className={s.headerContainer} ref={nav} fluid={'md'}>
                 <Navbar expand={'md'} className={s.navbar}>
-                    <IoMdClose className={s.closeButton} onClick={closeMenu} color='white'/>
+                    <svg className={s.closeButton} onClick={closeMenu} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.672 0L10 8.67608L1.32796 0L0 1.31988L8.67654 10.0002L0 18.6807L1.32796 20L10 11.3242L18.672 20L20 18.6807L11.3235 10.0002L20 1.31988L18.672 0Z" fill="#F8F7F5"/>
+                    </svg>
                     <Navbar.Brand>
                         <NavLink to={'/home'} onClick={closeMenu} className={s.logoLink}>
                             <Image src={logo} className={s.logo}/>
