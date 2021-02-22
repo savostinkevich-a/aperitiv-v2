@@ -55,13 +55,11 @@
 }
 .errorText {
   font-family: $sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   color: red;
   position: absolute;
   display: flex;
-  top: 70px;
-  left: 0;
-  width: 100%;
+  top: 75px;
   justify-content: center;
 }
 
@@ -148,6 +146,36 @@
     opacity: 1;
   }
 }
+.imagePreviewContainer {
+  display: flex;
+}
+
+.imagePreview {
+  position: relative;
+  display: flex;
+  margin-right: 10px;
+}
+
+.imagePreview img {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.imagePreviewCloseButton {
+  height: 16px;
+  width: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  top: -8px;
+  right: -8px;
+  position: absolute;
+  background-color: gray;
+  border: 1px solid white;
+  cursor: pointer;
+}
 
 
 .buttonContainer {
@@ -171,3 +199,5 @@
 .checkbox input:checked + .info:after{border-color:#3de0f5}
 .checkbox input:checked + .warning:after{border-color:#FFC107}
 .checkbox input:checked + .danger:after{border-color:#f44336}
+
+

@@ -146,7 +146,7 @@ const ModalForm = (props: PropsType) => {
         if (name === '' || phone === '') {
             setInputError('Пожалуйста, заполните поля, отмеченные красным')
         } else if (!check) {
-            setInputError('Нужно принять условия политики конфиденциальности!')
+            setInputError('Нужно принять условия политики конфиденциальности')
         } else {
             setIsFetching(true);
             if (previewSource.length === 0) {
@@ -193,25 +193,29 @@ const ModalForm = (props: PropsType) => {
 
         {previewSource.length > 0 &&
         <>
-            <div>
+            <div className={s.imagePreviewContainer}>
                 {previewSource.map(image => {
-                    return <Image className=' mr-2 mb-1'
-                                  onClick={() => {
-                                      const array = [...previewSource];
-                                      array.splice(array.indexOf(image), 1);
-                                      setPreviewSource(array);
-                                  }}
-                        //@ts-ignore
-                                  src={image} width={'50px'} />;
+                    return <div className={s.imagePreview}>
+                        <div onClick={() => {
+                            const array = [...previewSource];
+                            array.splice(array.indexOf(image), 1);
+                            setPreviewSource(array);
+                        }} className={s.imagePreviewCloseButton}>
+                            <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.21666 0.213867L4.50007 3.93219L0.783481 0.213867L0.214355 0.779529L3.93287 4.49965L0.214355 8.2199L0.783481 8.7853L4.50007 5.0671L8.21666 8.7853L8.78578 8.2199L5.06727 4.49965L8.78578 0.779529L8.21666 0.213867Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <Image
+                            //@ts-ignore
+                               src={image} />
+                    </div>
                 })}
             </div>
-            <div className='mb-3'>Чтобы удалить, нажмите на картинку</div>
         </>
         }
         {imageSizeError && <div className='mb-3'>Максимальный вес картинки 10mb</div>}
         <div className={s.checkboxContainer}>
-            <span className={inputError === '' ? s.checkboxText : s.checkboxText__error} onClick={() => setCheck(!check)}>Я принимаю условия политики конфиденциальности </span>
-            {/*<NavLink to={'/privacy-policy'} onClick={closeHandler} className={s.checkboxText_link} ></NavLink>*/}
+            <span className={s.checkboxText} onClick={() => setCheck(!check)}>Я принимаю условия политики конфиденциальности </span>
             <label className={s.checkbox} style={inputError === '' ? {border: '1px solid #ccc'} : {border: '1px solid red'}}>
                 <input type="checkbox" checked={check} onChange={() => setCheck(!check)} />
                 <span className={s.default} />
