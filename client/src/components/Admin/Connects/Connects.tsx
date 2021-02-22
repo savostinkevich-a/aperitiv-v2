@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Button, Card, Container, Modal } from 'react-bootstrap';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import Loader from '../../Loader/Loader';
-import { NavLink } from 'react-router-dom';
 
 const GET_CONNECTS = gql`
     query GetConnects($limit: Int!, $page: Int!, $filters: FilterConnectsInput) {
@@ -80,7 +79,7 @@ const Connects = () => {
         </Card.Header>
         <Card.Body>
           <div className='pb-1' style={{ fontSize: 16 }}>
-            {item.desiresText}
+            {item.desiresText && item.desiresText}
           </div>
           {
             item.desires.map((link: string) => {

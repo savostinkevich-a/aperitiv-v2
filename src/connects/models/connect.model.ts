@@ -18,9 +18,9 @@ export class Connect {
     @Prop()
     name: string
 
-    @Field(() => String)
+    @Field(() => String, {nullable: true})
     @Prop()
-    desiresText: string
+    desiresText?: string
 
     @Field(() => [String], {nullable: true})
     @Prop()

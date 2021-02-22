@@ -39,6 +39,8 @@ const ModalForm = (props: PropsType) => {
     const [error, setError] = useState('');
     const [imageSizeError, setImageSizeError] = useState(false);
 
+    const [inputError, setInputError] = useState('')
+
     const inputRef = React.useRef<HTMLInputElement>(null);
 
     const previewFile = (file: any) => {
@@ -139,23 +141,31 @@ const ModalForm = (props: PropsType) => {
 
 
     const handleSubmit = (e: any) => {
-        setIsFetching(true);
         e.preventDefault();
-        if (previewSource.length === 0) {
-            createHandler().then(() => {
-            });
+
+        if (name === '' || phone === '') {
+            setInputError('Пожалуйста, заполните поля, отмеченные красным')
+        } else if (!check) {
+            setInputError('Нужно принять условия политики конфиденциальности!')
+        } else {
+            setIsFetching(true);
+            if (previewSource.length === 0) {
+                createHandler().then(() => {
+                });
+            }
+            previewSource.forEach(i => uploadImage(i));
         }
-        previewSource.forEach(i => uploadImage(i));
     };
 
     const ClientForm = <Form onSubmit={handleSubmit}>
+        {inputError !== '' && <div className={s.errorText}>{inputError}</div>}
         <Form.Group>
-            <Form.Control className={s.inputItem} type="text" placeholder="Имя"
+            <Form.Control className={inputError === '' ? s.inputItem : s.inputItem__error} type="text" placeholder="Имя"
                           value={name} onChange={event => setName(event.target.value)}
             />
         </Form.Group>
 
-        <Form.Control className={s.inputItem} type="number" placeholder="Телефон"
+        <Form.Control className={inputError === '' ? s.inputItem : s.inputItem__error} type="number" placeholder="Телефон"
                       value={phone} onChange={event => setPhone(event.target.value)}
         />
         <Form.Group className={s.desiresContainer}>
@@ -200,19 +210,23 @@ const ModalForm = (props: PropsType) => {
         }
         {imageSizeError && <div className='mb-3'>Максимальный вес картинки 10mb</div>}
         <div className={s.checkboxContainer}>
-            <span className={s.checkboxText}>Я принимаю условия </span>
-            <NavLink to={'/privacy-policy'} onClick={closeHandler} className={s.checkboxText_link} >политики конфиденциальности </NavLink>
-            <label className={s.checkbox}>
+            <span className={inputError === '' ? s.checkboxText : s.checkboxText__error} onClick={() => setCheck(!check)}>Я принимаю условия политики конфиденциальности </span>
+            {/*<NavLink to={'/privacy-policy'} onClick={closeHandler} className={s.checkboxText_link} ></NavLink>*/}
+            <label className={s.checkbox} style={inputError === '' ? {border: '1px solid #ccc'} : {border: '1px solid red'}}>
                 <input type="checkbox" checked={check} onChange={() => setCheck(!check)} />
                 <span className={s.default} />
             </label>
         </div>
         <div className={s.buttonContainer}>
             <Button variant="primary" className={s.button}
-                    disabled={name === '' || phone === '' || desire === '' || !check}
+                    // disabled={name === '' || phone === '' || desire === '' || !check}
                     type='submit'
             >Отправить</Button>
         </div>
+        <div className={s.linkContainer}>
+            <NavLink to={'/privacy-policy'} onClick={closeHandler} className={s.checkboxText_link} >Политика конфиденциальности </NavLink>
+        </div>
+
     </Form>;
 
 
