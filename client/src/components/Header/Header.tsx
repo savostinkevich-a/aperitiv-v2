@@ -45,7 +45,7 @@ const Header = () => {
                     </Navbar.Brand>
                         <Nav className={s.nav}>
                             <NavLink to={'/home'} className={`${s.navItem} ${s.homePageLink}`} onClick={closeMenu}>Главная</NavLink>
-                            <NavLink to={'/portfolio'} className={s.navItem} onClick={closeMenu}>Портфолио</NavLink>
+                            <NavLink to={'/catalog'} className={s.navItem} onClick={closeMenu}>Каталог</NavLink>
                             <NavLink to={'/about'} className={s.navItem} onClick={closeMenu}>Обо мне</NavLink>
                             <HashRouter hashType='noslash'>
                                 <NavLink to={'contacts'} className={s.navItem} onClick={closeMenu}>Контакты</NavLink>

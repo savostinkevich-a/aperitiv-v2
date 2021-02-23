@@ -213,7 +213,7 @@ const Catalog = (props: PropsType) => {
         <>
             <Container className={s.catalogWrapper} fluid={'md'}>
                 <Row className={s.titleContainer}>
-                    <h2 className={s.title}>Портфолио</h2>
+                    <h2 className={s.title}>Каталог</h2>
                 </Row>
                 <Row xs={2} className={s.contentContainer}>
                     {items}

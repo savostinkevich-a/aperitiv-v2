@@ -49,10 +49,10 @@ function App() {
                         <Route exact path={'/home/:prettyId'}
                                render={() => <CatalogItem fromCatalog={false} products={productsUrls} />}
                         />
-                        <Route path={'/portfolio'}
+                        <Route path={'/catalog'}
                                render={() => <Catalog setModalOpen={setIsOpen} setProductsUrls={setProductsUrls} />}
                         />
-                        <Route exact path={'/portfolio/:prettyId'}
+                        <Route exact path={'/catalog/:prettyId'}
                                render={() => <CatalogItem fromCatalog={true} products={productsUrls} />}
                         />
                         <Route exact path={'/about'}

@@ -111,10 +111,15 @@
 .controls {
   z-index: 100;
   cursor: pointer;
+  & path {
+    stroke: #D4D4D4;
+  }
  @media (max-width: 767px) {
    position: absolute;
    top: calc(50% - 30px);
-
+   & path {
+     stroke: $text-color;
+   }
    & path:nth-child(1) {
      display: none;
    }
