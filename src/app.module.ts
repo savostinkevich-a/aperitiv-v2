@@ -11,23 +11,17 @@ import { UploadModule } from './upload/upload.module';
 import {ServeStaticModule} from "@nestjs/serve-static";
 import { ConnectsModule } from './connects/connects.module';
 
+const config = require('../config/config')
+
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'uploads/client'),
-      serveRoot: '/client',
-    }),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'uploads/products'),
-      serveRoot: '/products'
-    }),
-    ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client/build'),
-      exclude: ['/api*', '/client*', '/products*', '/graphql*'],
+      exclude: ['/api*', '/graphql*'],
     }),
     ConfigModule.forRoot(),
-    MongooseModule.forRoot('mongodb+srv://andrey:rBi7099606@cluster0.0wcvh.mongodb.net/AperitiV?retryWrites=true&w=majority'),
+    MongooseModule.forRoot(config.dataBase),
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
@@ -43,7 +37,7 @@ import { ConnectsModule } from './connects/connects.module';
       },
       cors: {
         credentials: true,
-        origin: ['http://localhost:5000', 'http://localhost:3000', 'https://aperitiv.herokuapp.com/', 'http://192.168.0.110:3000'],
+        origin: config.origin,
       }
     }),
     AuthModule,

@@ -2,21 +2,8 @@ import {
   Body,
   Controller,
   Delete,
-  Get,
-  Header, Logger,
-  Param,
   Post,
-  Req,
-  Res,
-  UploadedFile,
-  UseInterceptors,
 } from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-
-let crypto = require('crypto');
-
-const fs = require('fs');
 
 const { cloudinary } = require('../../utils/cloudinary');
 
@@ -77,19 +64,19 @@ export class UploadController {
   //     return file.filename
   // }
 
-  @Post('/client')
-  @UseInterceptors(FileInterceptor('image', {
-    storage: diskStorage({
-      destination: './uploads/client',
-      filename: (req, file, cb) => {
-        const prefix = crypto.randomBytes(20).toString('hex');
-        cb(null, prefix + '_' + file.originalname);
-      },
-    }),
-  }))
-  uploadClientFile(@UploadedFile() file) {
-    return file.filename;
-  }
+  // @Post('/client')
+  // @UseInterceptors(FileInterceptor('image', {
+  //   storage: diskStorage({
+  //     destination: './uploads/client',
+  //     filename: (req, file, cb) => {
+  //       const prefix = crypto.randomBytes(20).toString('hex');
+  //       cb(null, prefix + '_' + file.originalname);
+  //     },
+  //   }),
+  // }))
+  // uploadClientFile(@UploadedFile() file) {
+  //   return file.filename;
+  // }
 
 //     @Post('/client/delete/:imageName')
 //     deleteImage(@Param() params): number {

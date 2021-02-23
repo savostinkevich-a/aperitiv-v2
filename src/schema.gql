@@ -16,7 +16,7 @@ type Connect {
   _id: String!
   date: DateTime!
   desires: [String!]
-  desiresText: String!
+  desiresText: String
   name: String!
   phone: String!
   productId: String

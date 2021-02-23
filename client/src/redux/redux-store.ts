@@ -1,3 +1,5 @@
+// Redux не доделан и не используется
+
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {portfolioReducer} from "./portfolio/reducer";
 import thunkMiddleware from "redux-thunk"
