@@ -18,6 +18,7 @@ export class ProductsService {
         if ((args.page - 1) * args.limit <= total) {
             const products = await this.productModel
                 .find({...filters})
+                .sort({_id: -1})
                 .skip(args.page > 0 ? ((args.page - 1) * args.limit) : 0)
                 .limit(args.limit)
             return {products, total};
