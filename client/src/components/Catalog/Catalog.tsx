@@ -139,7 +139,6 @@ const Catalog = (props: PropsType) => {
                                 </Col>,
                             );
                         }
-
                     }
                     items.push(
                         <Col className={s.contentWrapper} key={crypto.randomBytes(20).toString('hex')}>
