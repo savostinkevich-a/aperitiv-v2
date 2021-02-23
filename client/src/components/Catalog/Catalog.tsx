@@ -73,7 +73,7 @@ const Catalog = (props: PropsType) => {
         items = data.getProducts.products.map((item: any) => {
             return (
                 <Col className={s.contentWrapper} key={item._id}>
-                    <NavLink to={`/portfolio/${item.prettyId}`}>
+                    <NavLink to={`/client/${item.prettyId}`}>
                         <div className={s.contentItem__large}>
                             <div className={s.imageContainer__large}>
                                 <img src={item.imageUrls[0]} className={s.image__large} />
@@ -92,7 +92,7 @@ const Catalog = (props: PropsType) => {
                 console.log(item);
                 smallItems.push(
                     <Col className={s.contentWrapper__small} key={item._id}>
-                        <NavLink to={`/portfolio/${item.prettyId}`}>
+                        <NavLink to={`/client/${item.prettyId}`}>
                             <div className={s.contentItem__small}>
                                 <div className={s.imageContainer__small}>
                                     <img src={item.imageUrls[0]} className={s.image__small} />
@@ -116,7 +116,7 @@ const Catalog = (props: PropsType) => {
                 if (data.getProducts.products.indexOf(item) === data.getProducts.products.length - 1) {
                     smallItems.push(
                         <Col className={s.contentWrapper__small} key={item._id}>
-                            <NavLink to={`/portfolio/${item.prettyId}`}>
+                            <NavLink to={`/client/${item.prettyId}`}>
                                 <div className={s.contentItem__small}>
                                     <div className={s.imageContainer__small}>
                                         <img src={item.imageUrls[0]} className={s.image__small} />
@@ -152,7 +152,7 @@ const Catalog = (props: PropsType) => {
                     return (
                         smallItems.push(
                             <Col className={s.contentWrapper__small} key={item._id}>
-                                <NavLink to={`/portfolio/${item.prettyId}`}>
+                                <NavLink to={`/catalog/${item.prettyId}`}>
                                     <div className={s.contentItem__small}>
                                         <div className={s.imageContainer__small}>
                                             <img src={item.imageUrls[0]} className={s.image__small} />
@@ -171,7 +171,7 @@ const Catalog = (props: PropsType) => {
                 return (
                     items.push(
                         <Col className={s.contentWrapper} key={item._id}>
-                            <NavLink to={`/portfolio/${item.prettyId}`}>
+                            <NavLink to={`/catalog/${item.prettyId}`}>
                                 <div className={s.contentItem__large}>
                                     <div className={s.imageContainer__large}>
                                         <img src={item.imageUrls[0]} className={s.image__large} />

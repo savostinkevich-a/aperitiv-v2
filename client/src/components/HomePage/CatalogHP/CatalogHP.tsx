@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import s from './CatalogHP.module.scss';
 import { NavLink } from 'react-router-dom';
