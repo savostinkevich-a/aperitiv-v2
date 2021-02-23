@@ -11,9 +11,6 @@ import { UploadModule } from './upload/upload.module';
 import {ServeStaticModule} from "@nestjs/serve-static";
 import { ConnectsModule } from './connects/connects.module';
 
-const config = require('../config/config')
-
-
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -21,7 +18,7 @@ const config = require('../config/config')
       exclude: ['/api*', '/graphql*'],
     }),
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(config.dataBase),
+    MongooseModule.forRoot(process.env.DB_ACCESS),
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
@@ -37,7 +34,7 @@ const config = require('../config/config')
       },
       cors: {
         credentials: true,
-        origin: config.origin,
+        origin: ['http://localhost:5000', 'http://localhost:3000', 'https://aperitiv.herokuapp.com/', 'http://192.168.0.110:3000']
       }
     }),
     AuthModule,

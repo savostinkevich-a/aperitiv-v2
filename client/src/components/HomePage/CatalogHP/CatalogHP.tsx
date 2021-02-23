@@ -37,7 +37,7 @@ const CatalogHP = (props: PropsType) => {
                 {items}
             </Row>
             <Row className={s.linkContainer}>
-                <NavLink to={'/portfolio'} className={s.link}>Перейти в каталог</NavLink>
+                <NavLink to={'/catalog'} className={s.link}>Перейти в каталог</NavLink>
             </Row>
         </Container>
     );
