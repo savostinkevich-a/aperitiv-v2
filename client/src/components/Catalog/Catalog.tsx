@@ -53,7 +53,6 @@ const Catalog = (props: PropsType) => {
             const productsUrls = data.getProducts.products.map((item: any) => {
                 return item.prettyId;
             });
-            console.log(data.getProducts.total)
             props.setProductsUrls(productsUrls);
         })
     });
