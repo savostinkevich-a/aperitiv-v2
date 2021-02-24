@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Col, Container, Image, Row} from "react-bootstrap";
 import s from './TitleHP.module.scss'
-import titleImage from './../../../assets/img/titleImage.png'
+import titleImage from './../../../assets/img/titleImage.jpeg'
 
 type PropsType = {
     openModal(isOpen: boolean):void
