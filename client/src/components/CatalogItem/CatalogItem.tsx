@@ -154,6 +154,9 @@ const CatalogItem = (props: PropsType) => {
         );
     }
 
+    const descriptionArray: Array<string> = product.description.split('.')
+    const description = descriptionArray.map(item => <div>{item}</div>)
+
     const handleSelect = (selectedIndex: any, e: any) => {
         setImageActiveIndex(selectedIndex);
     };
@@ -192,7 +195,7 @@ const CatalogItem = (props: PropsType) => {
                             {product.title}
                         </div>
                         <div className={s.description}>
-                            {product.description}
+                            {description}
                         </div>
                     </div>
                 </div>
