@@ -192,10 +192,7 @@ const CatalogItem = (props: PropsType) => {
                             {product.title}
                         </div>
                         <div className={s.description}>
-                            Классический кружевной бюстгальтер с косточками. Нежная цветовая гамма для самого
-                            интимного
-                            образа.
-                            Состав: 89% Полиамид, 11% Эластан
+                            {product.description}
                         </div>
                     </div>
                 </div>
