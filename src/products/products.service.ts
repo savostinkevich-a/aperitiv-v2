@@ -8,6 +8,8 @@ import {PaginatedProducts} from "./models/paginated-products.model";
 import {CreateProductInput} from "./dto/create-product.input";
 import {UpdateProductInput} from "./dto/update-product.input";
 
+const crypto = require('crypto')
+
 @Injectable()
 export class ProductsService {
     constructor(@InjectModel(Product.name) private productModel: Model<ProductDocument>) {
@@ -58,7 +60,9 @@ export class ProductsService {
             }
             return n_str.join('');
         }
-        const prettyId = rus_to_latin(createProductData.title).split(' ').join('_')
+        const postfix = crypto.randomBytes(5).toString('hex');
+        const prettyIdWithoutPostfix = rus_to_latin(createProductData.title).split(' ').join('_')
+        const prettyId = prettyIdWithoutPostfix + '_' + postfix
         const product = new this.productModel({...createProductData, prettyId})
         return product.save()
     }

@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import ErrorPage from '../Loader/ErrorPage';
 
-const crypto = require('crypto')
+const crypto = require('crypto');
 
 const GET_PRODUCTS = gql`
     query GetProducts($limit: Int!, $page: Int!, $filters: FilterProductsInput){
@@ -28,7 +28,6 @@ const GET_PRODUCTS = gql`
 `;
 
 
-
 type PropsType = {
     setProductsUrls(urls: Array<string>): void
     setModalOpen(isOpen: boolean): void
@@ -36,17 +35,22 @@ type PropsType = {
 
 const Catalog = (props: PropsType) => {
     const [page, setPage] = useState(1);
-
+    const [limit, setLimit] = useState(10);
+    const [updates, setUpdates] = useState(0);
+    const [windowY, setWindowY] = useState(0)
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-        refetch();
-    }, [page]);
+        console.log(windowY)
+        refetch().then(() => {
+            window.scrollTo(0, windowY);
+        })
+    },[windowY]);
+
 
     const { data, loading, error, refetch } = useQuery(GET_PRODUCTS, {
         variables: {
             page: page,
-            limit: 10,
+            limit: limit,
             filters: {},
         },
         onCompleted: ((data) => {
@@ -54,8 +58,9 @@ const Catalog = (props: PropsType) => {
                 return item.prettyId;
             });
             props.setProductsUrls(productsUrls);
-        })
+        }),
     });
+
 
     if (loading) {
         return <Loader />;
@@ -217,17 +222,24 @@ const Catalog = (props: PropsType) => {
                     {items}
                 </Row>
                 <Row className={s.pagination}>
-                    <Button className={s.paginationButton} onClick={() => setPage(1)} disabled={page === 1}>
-                        <BsArrowLeft />
-                    </Button>
-                    {pages.map(i => {
-                        return <Button key={i} className={s.paginationButton} onClick={() => setPage(i)}
-                                       disabled={page === i}>{i}</Button>;
-                    })}
-                    <Button className={s.paginationButton} onClick={() => setPage(pagesCount)}
-                            disabled={page === pagesCount}>
-                        <BsArrowRight />
-                    </Button>
+                    {data.getProducts.total > limit && <Button onClick={() => {
+                        console.log(window.pageYOffset)
+                        setWindowY(window.pageYOffset)
+
+                        setLimit(limit => limit + 10);
+                    }}>Показать еще</Button>}
+
+                    {/*<Button className={s.paginationButton} onClick={() => setPage(1)} disabled={page === 1}>*/}
+                    {/*    <BsArrowLeft />*/}
+                    {/*</Button>*/}
+                    {/*{pages.map(i => {*/}
+                    {/*    return <Button key={i} className={s.paginationButton} onClick={() => setPage(i)}*/}
+                    {/*                   disabled={page === i}>{i}</Button>;*/}
+                    {/*})}*/}
+                    {/*<Button className={s.paginationButton} onClick={() => setPage(pagesCount)}*/}
+                    {/*        disabled={page === pagesCount}>*/}
+                    {/*    <BsArrowRight />*/}
+                    {/*</Button>*/}
 
                 </Row>
             </Container>
